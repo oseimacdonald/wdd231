@@ -1,0 +1,201 @@
+/* Base styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+/* Header styles */
+header {
+    background-color: #4a86e8;
+    color: white;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+/* Navigation styles */
+.navigation {
+    background-color: #333;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.navigation.active {
+    max-height: 200px;
+}
+
+.navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navigation li {
+    border-bottom: 1px solid #444;
+}
+
+.navigation a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 1rem;
+    transition: background-color 0.3s;
+}
+
+.navigation a:hover, 
+.navigation a.active {
+    background-color: #4a86e8;
+}
+
+/* Main content styles */
+main {
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #4a86e8;
+    border-bottom: 2px solid #4a86e8;
+    padding-bottom: 0.5rem;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.social-links {
+    margin-bottom: 1rem;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 0.5rem;
+    color: white;
+}
+
+.social-links svg {
+    width: 24px;
+    height: 24px;
+}
+
+#lastModified {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-top: 0.5rem;
+}
+
+/* Course and project item styles */
+.project-item, .course-item {
+    background: #f0f7ff;
+    padding: 1.2rem;
+    border-radius: 8px;
+    border-left: 4px solid #4a86e8;
+    margin-bottom: 1rem;
+}
+
+.project-item h3, .course-item h3 {
+    color: #3a66b5;
+    margin-bottom: 0.5rem;
+}
+
+.project-item a {
+    color: #4a86e8;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.project-item a:hover {
+    text-decoration: underline;
+}
+
+.skill-pill {
+    display: inline-block;
+    background-color: #4a86e8;
+    color: white;
+    padding: 0.3rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin: 0.2rem;
+}
+
+.skills {
+    margin-top: 0.8rem;
+}
+
+.status {
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.status.completed {
+    background-color: #4caf50;
+    color: white;
+}
+
+.status.in-progress {
+    background-color: #ff9800;
+    color: white;
+}
+
+.status.planned {
+    background-color: #9e9e9e;
+    color: white;
+}

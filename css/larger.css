@@ -1,0 +1,47 @@
+/* Media query for larger screens */
+@media (min-width: 768px) {
+    .hamburger {
+        display: none;
+    }
+    
+    .navigation {
+        max-height: none;
+        padding: 0;
+    }
+    
+    .navigation ul {
+        display: flex;
+        justify-content: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .navigation li {
+        border-bottom: none;
+    }
+    
+    main {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    h1 {
+        grid-column: 1 / -1;
+    }
+    
+    .card:last-child {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Additional styles for very large screens */
+@media (min-width: 1024px) {
+    main {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .card:last-child {
+        grid-column: auto;
+    }
+}
