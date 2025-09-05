@@ -2,6 +2,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const projectList = document.querySelector('.project-list');
     const courseList = document.querySelector('.course-list');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const totalCreditsElement = document.getElementById('totalCredits');
     
     // Project data for WDD231
     const projects = [
@@ -19,88 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
     
-    // Course data with your specific courses
+    // Course data for Web and Computer Programming Certificate
     const courses = [
-        { 
-            code: 'WDD231', 
-            name: 'Web Frontend Development II', 
-            description: 'Advanced frontend development techniques including responsive design, APIs, and modern JavaScript frameworks.',
-            credits: 3,
-            status: 'In Progress',
-            instructor: 'Professor Smith'
-        },
-        { 
-            code: 'BUS301', 
-            name: 'Business Communications', 
-            description: 'Development of professional communication skills for business environments.',
-            credits: 3,
-            status: 'Completed',
-            grade: 'B+'
-        },
-        { 
-            code: 'CSE340', 
-            name: 'Web Backend Development', 
-            description: 'Server-side programming, databases, and backend technologies for web applications.',
-            credits: 3,
-            status: 'Completed',
-            grade: 'A-'
-        },
-        { 
-            code: 'REL200A', 
-            name: 'Foundations of Religion', 
-            description: 'Study of religious traditions and their foundational principles.',
-            credits: 2,
-            status: 'Completed',
-            grade: 'A'
-        },
-        { 
-            code: 'CSE212', 
-            name: 'Programming with Data Structures', 
-            description: 'Advanced programming concepts focusing on data structures and algorithms.',
-            credits: 3,
-            status: 'Completed',
-            grade: 'B'
-        },
-        { 
-            code: 'CSE270', 
-            name: 'Introduction to Cybersecurity', 
-            description: 'Fundamentals of cybersecurity principles, threats, and defense mechanisms.',
-            credits: 3,
-            status: 'Completed',
-            grade: 'A-'
-        },
-        { 
-            code: 'GESCI110', 
-            name: 'Earth Science', 
-            description: 'Study of Earth\'s systems, processes, and environmental interactions.',
-            credits: 3,
-            status: 'Completed',
-            grade: 'B+'
-        },
-        { 
-            code: 'HUM110', 
-            name: 'Introduction to Humanities', 
-            description: 'Exploration of human cultural achievements in art, literature, and philosophy.',
-            credits: 3,
-            status: 'Completed',
-            grade: 'A'
-        },
-        { 
-            code: 'REL225A', 
-            name: 'New Testament Survey', 
-            description: 'Comprehensive study of the New Testament scriptures and their historical context.',
-            credits: 2,
-            status: 'Completed',
-            grade: 'A'
-        },
-        { 
-            code: 'REL225B', 
-            name: 'Old Testament Survey', 
-            description: 'Comprehensive study of the Old Testament scriptures and their historical context.',
-            credits: 2,
-            status: 'Completed',
-            grade: 'A-'
-        }
+        { code: 'CSE110', name: 'Programming Building Blocks', credits: 2, completed: true },
+        { code: 'WDD130', name: 'Web Fundamentals', credits: 2, completed: true },
+        { code: 'CSE111', name: 'Programming with Functions', credits: 2, completed: false },
+        { code: 'CSE210', name: 'Programming with Classes', credits: 2, completed: false },
+        { code: 'WDD131', name: 'Dynamic Web Fundamentals', credits: 2, completed: true },
+        { code: 'WDD231', name: 'Frontend Web Development II', credits: 3, completed: false },
+        { code: 'CSE121B', name: 'JavaScript Language', credits: 2, completed: true },
+        { code: 'CSE211', name: 'Programming with Data Structures', credits: 2, completed: false }
     ];
     
     // Populate projects
@@ -120,26 +50,51 @@ document.addEventListener('DOMContentLoaded', () => {
         projectList.appendChild(projectElement);
     });
     
-    // Populate courses
-    courses.forEach(course => {
-        const courseElement = document.createElement('div');
-        courseElement.classList.add('course-item');
+    // Function to render courses based on filter
+    function renderCourses(filter = 'all') {
+        courseList.innerHTML = '';
+        let filteredCourses = courses;
         
-        let statusHTML = '';
-        if (course.status === 'Completed') {
-            statusHTML = `<span class="status completed">Completed (Grade: ${course.grade})</span>`;
-        } else if (course.status === 'In Progress') {
-            statusHTML = `<span class="status in-progress">In Progress - Instructor: ${course.instructor}</span>`;
-        } else {
-            statusHTML = `<span class="status planned">Planned</span>`;
+        if (filter === 'wdd') {
+            filteredCourses = courses.filter(course => course.code.startsWith('WDD'));
+        } else if (filter === 'cse') {
+            filteredCourses = courses.filter(course => course.code.startsWith('CSE'));
         }
         
-        courseElement.innerHTML = `
-            <h3>${course.code}</h3>
-            <p><strong>${course.name}</strong> (${course.credits} credits)</p>
-            <p>${course.description}</p>
-            ${statusHTML}
-        `;
-        courseList.appendChild(courseElement);
+        // Calculate total credits
+        const totalCredits = filteredCourses.reduce((total, course) => total + course.credits, 0);
+        totalCreditsElement.textContent = totalCredits;
+        
+        // Render courses
+        filteredCourses.forEach(course => {
+            const courseElement = document.createElement('div');
+            courseElement.classList.add('course-item');
+            
+            if (course.completed) {
+                courseElement.style.backgroundColor = '#f0fff4';
+                courseElement.style.borderLeftColor = '#48bb78';
+            }
+            
+            courseElement.innerHTML = `
+                <h3>${course.code}</h3>
+                <p><strong>${course.name}</strong> (${course.credits} credits)</p>
+                <span class="status ${course.completed ? 'completed' : 'planned'}">
+                    ${course.completed ? 'Completed' : 'Planned'}
+                </span>
+            `;
+            courseList.appendChild(courseElement);
+        });
+    }
+    
+    // Initial render
+    renderCourses();
+    
+    // Add event listeners to filter buttons
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            renderCourses(button.dataset.filter);
+        });
     });
 });

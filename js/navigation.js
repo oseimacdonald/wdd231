@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     hamburger.addEventListener('click', () => {
         navigation.classList.toggle('active');
+        hamburger.classList.toggle('active');
     });
     
     // Close navigation when a link is clicked (for mobile)
@@ -13,7 +14,19 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', () => {
             if (window.innerWidth < 768) {
                 navigation.classList.remove('active');
+                hamburger.classList.remove('active');
             }
         });
+    });
+    
+    // Close navigation when clicking outside
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth < 768 && 
+            navigation.classList.contains('active') &&
+            !e.target.closest('.navigation') && 
+            !e.target.closest('.hamburger')) {
+            navigation.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
     });
 });

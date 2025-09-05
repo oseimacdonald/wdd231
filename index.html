@@ -7,6 +7,11 @@
     <meta name="author" content="Mac-Donald Osei Bonsu">
     <title>WDD231 - Course Home Page</title>
     
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+    
     <!-- CSS Files -->
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/small.css">
@@ -21,8 +26,9 @@
     <header>
         <div class="header-content">
             <svg class="logo" width="50" height="50" viewBox="0 0 50 50">
-                <circle cx="25" cy="25" r="20" fill="#4a86e8" />
-                <text x="25" y="30" text-anchor="middle" fill="white" font-size="14">WDD</text>
+                <circle cx="25" cy="25" r="20" fill="#2d3748" />
+                <text x="25" y="30" text-anchor="middle" fill="white" font-size="14" font-weight="bold">WDD</text>
+                <text x="25" y="45" text-anchor="middle" fill="#4a86e8" font-size="10" font-weight="bold">231</text>
             </svg>
             <span class="name">Mac-Donald Osei Bonsu</span>
             <button class="hamburger" aria-label="Navigation menu">
@@ -59,8 +65,16 @@
         
         <section class="card">
             <h2>Coursework</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Courses</button>
+                <button class="filter-btn" data-filter="wdd">WDD Courses</button>
+                <button class="filter-btn" data-filter="cse">CSE Courses</button>
+            </div>
             <div class="course-list">
                 <!-- Course information will be dynamically loaded with JavaScript -->
+            </div>
+            <div class="credits-counter">
+                Total Credits: <span id="totalCredits">0</span>
             </div>
         </section>
     </main>
@@ -79,7 +93,7 @@
             </a>
         </div>
         
-        <p>&copy; <span id="currentYear"></span> Mac-Donald Osei Bonsu - Ghana</p>
+        <p>&copy; <span id="currentYear"></span> Mac-Donald Osei Bonsu : Accra-Ghana</p>
         <p id="lastModified"></p>
     </footer>
 </body>
