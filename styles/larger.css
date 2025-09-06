@@ -62,23 +62,11 @@
 
 /* Additional styles for very large screens */
 @media (min-width: 1024px) {
-    .project-list {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .course-list {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
-    /* Larger profile image on bigger screens */
     .profile-img {
         width: 200px;
         height: 200px;
     }
-}
-
-/* Hover effects for larger screens */
-@media (min-width: 768px) {
+    
     .card {
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -86,38 +74,5 @@
     .card:hover {
         transform: translateY(-3px);
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    }
-    
-    .project-item, .course-item {
-        transition: transform 0.2s ease;
-    }
-    
-    .project-item:hover, .course-item:hover {
-        transform: translateX(5px);
-    }
-    
-    .project-item a {
-        transition: color 0.2s ease;
-    }
-    
-    .project-item a:hover {
-        color: #3a66b5;
-    }
-    
-    .social-links a {
-        transition: transform 0.3s ease, background 0.3s ease;
-    }
-    
-    .social-links a:hover {
-        transform: translateY(-3px);
-        background: #5a96f8;
-    }
-    
-    .filter-btn {
-        transition: background-color 0.2s ease;
-    }
-    
-    .filter-btn:hover {
-        background-color: #cbd5e0;
     }
 }

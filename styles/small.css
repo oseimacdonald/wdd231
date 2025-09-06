@@ -13,10 +13,11 @@ html {
 body {
     font-family: 'Open Sans', sans-serif;
     line-height: 1.6;
-    margin: 0;
-    padding: 0;
     color: #2d3748;
     background-color: #f7fafc;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Typography */
@@ -83,6 +84,19 @@ header {
     height: 3px;
     background-color: white;
     border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
 }
 
 /* Navigation styles */
@@ -100,8 +114,6 @@ header {
 
 .navigation ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
 }
 
 .navigation li {
@@ -128,10 +140,10 @@ main {
     padding: 1rem;
     max-width: 1200px;
     margin: 0 auto;
+    flex: 1;
 }
 
 h1 {
-    font-family: 'Montserrat', sans-serif;
     color: #2d3748;
     border-bottom: 2px solid #4a86e8;
     padding-bottom: 0.5rem;
@@ -159,6 +171,7 @@ h1 {
     object-fit: cover;
     border: 3px solid #4a86e8;
     align-self: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Footer styles */
@@ -167,7 +180,7 @@ footer {
     color: white;
     text-align: center;
     padding: 1.5rem;
-    margin-top: 2rem;
+    margin-top: auto;
 }
 
 .social-links {
@@ -176,8 +189,13 @@ footer {
 
 .social-links a {
     display: inline-block;
-    margin: 0 0.5rem;
+    margin: 极 0.5rem;
     color: white;
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
 }
 
 .social-links svg {
@@ -198,10 +216,14 @@ footer {
     border-radius: 8px;
     border-left: 4px solid #4a86e8;
     margin-bottom: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.project-item:hover, .course-item:hover {
+    transform: translateX(5px);
 }
 
 .project-item h3, .course-item h3 {
-    font-family: 'Montserrat', sans-serif;
     color: #2d3748;
     margin-bottom: 0.5rem;
 }
@@ -210,9 +232,11 @@ footer {
     color: #4a86e8;
     text-decoration: none;
     font-weight: 600;
+    transition: color 0.2s ease;
 }
 
 .project-item a:hover {
+    color: #3a66b5;
     text-decoration: underline;
 }
 
@@ -243,11 +267,6 @@ footer {
     color: white;
 }
 
-.status.in-progress {
-    background-color: #ed8936;
-    color: white;
-}
-
 .status.planned {
     background-color: #a0aec0;
     color: white;
@@ -269,7 +288,7 @@ footer {
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    transition: background-color 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .filter-btn:hover {
