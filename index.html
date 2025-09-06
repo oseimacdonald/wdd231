@@ -13,14 +13,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
     
     <!-- CSS Files -->
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/small.css">
-    <link rel="stylesheet" href="css/larger.css" media="(min-width: 768px)">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css" media="(min-width: 768px)">
     
     <!-- JavaScript Files (deferred) -->
-    <script src="js/navigation.js" defer></script>
-    <script src="js/date.js" defer></script>
-    <script src="js/course.js" defer></script>
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/date.js" defer></script>
+    <script src="scripts/course.js" defer></script>
 </head>
 <body>
     <header>
@@ -52,8 +52,13 @@
         
         <section class="card">
             <h2>About Me</h2>
-            <p>Hello! I'm a web development student passionate about creating responsive, accessible, and user-friendly websites. I'm currently expanding my skills in HTML, CSS, JavaScript, and various web frameworks.</p>
-            <p>When I'm not coding, I enjoy hiking, photography, and exploring new technologies. I believe in continuous learning and am excited about the ever-evolving world of web development.</p>
+            <div class="about-content">
+                <img src="images/me.jpg" alt="Mac-Donald Osei Bonsu" class="profile-img">
+                <div class="about-text">
+                    <p>Hello! I'm a web development student passionate about creating responsive, accessible, and user-friendly websites. I'm currently expanding my skills in HTML, CSS, JavaScript, and various web frameworks.</p>
+                    <p>When I'm not coding, I enjoy hiking, photography, and exploring new technologies. I believe in continuous learning and am excited about the ever-evolving world of web development.</p>
+                </div>
+            </div>
         </section>
         
         <section class="card">

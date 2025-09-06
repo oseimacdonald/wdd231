@@ -47,6 +47,17 @@
     .filter-buttons {
         justify-content: center;
     }
+    
+    /* About content layout for larger screens */
+    .about-content {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .profile-img {
+        align-self: auto;
+        flex-shrink: 0;
+    }
 }
 
 /* Additional styles for very large screens */
@@ -57,6 +68,12 @@
     
     .course-list {
         grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Larger profile image on bigger screens */
+    .profile-img {
+        width: 200px;
+        height: 200px;
     }
 }
 

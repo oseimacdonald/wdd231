@@ -113,6 +113,22 @@ h1 {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
+/* Profile image styles */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #4a86e8;
+    align-self: center;
+}
+
 /* Footer styles */
 footer {
     background-color: #2d3748;
