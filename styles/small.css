@@ -1,6 +1,13 @@
-/* Base styles */
+/* Base styles and reset */
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -10,6 +17,31 @@ body {
     padding: 0;
     color: #2d3748;
     background-color: #f7fafc;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 0.67em 0;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin: 0.83em 0;
+}
+
+h3 {
+    font-size: 1.17rem;
+    margin: 1em 0;
+}
+
+p {
+    margin-bottom: 1em;
 }
 
 /* Header styles */
