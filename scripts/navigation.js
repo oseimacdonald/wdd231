@@ -4,8 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const navigation = document.querySelector('.navigation');
     
     hamburger.addEventListener('click', () => {
-        navigation.classList.toggle('active');
+        const isExpanded = navigation.classList.toggle('active');
         hamburger.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', isExpanded);
     });
     
     // Close navigation when a link is clicked (for mobile)
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (window.innerWidth < 768) {
                 navigation.classList.remove('active');
                 hamburger.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
             }
         });
     });
@@ -27,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
             !e.target.closest('.hamburger')) {
             navigation.classList.remove('active');
             hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
         }
     });
 });

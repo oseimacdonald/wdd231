@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (course.completed) {
                 courseElement.style.backgroundColor = '#f0fff4';
-                courseElement.style.borderLeftColor = '#48bb78';
+                courseElement.style.borderLeftColor = '#2f855a';
             }
             
             courseElement.innerHTML = `
@@ -92,8 +92,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add event listeners to filter buttons
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-            filterButtons.forEach(btn => btn.classList.remove('active'));
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-pressed', 'false');
+            });
             button.classList.add('active');
+            button.setAttribute('aria-pressed', 'true');
             renderCourses(button.dataset.filter);
         });
     });
