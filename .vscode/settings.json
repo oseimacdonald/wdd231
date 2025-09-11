@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "pgOptions": {
+                "ssl": {
+                    "rejectUnauthorized": true
+                }
+            },
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "localhost",
+            "driver": "PostgreSQL",
+            "name": "render.com",
+            "connectString": "postgresql://dbnewrepo_user:G5tnOUlFTY6TN36oGwVLqtiOxjXUWGdQ@dpg-d2u9teje5dus73eigk10-a.frankfurt-postgres.render.com/dbnewrepo"
+        }
+    ]
+}
