@@ -543,7 +543,7 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Screen reader only text for accessibility */
+/* Screen reader only text for accessibility - UPDATED */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -552,6 +552,7 @@ footer {
   margin: -1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
 }
@@ -646,7 +647,6 @@ main h1 {
 /* Update body font family */
 body {
   font-family: 'Open Sans', sans-serif;
-  /* ... rest of your body styles */
 }
 
 /* For headings, I use Merriweather */
