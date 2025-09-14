@@ -1,5 +1,3 @@
-/* Normalize already linked above */
-
 /* ===== GLOBAL STYLES ===== */
 body {
   font-family: 'Open Sans', sans-serif;
@@ -36,7 +34,6 @@ header {
   font-size: 1.5rem;
 }
 
-/* Navigation */
 nav ul {
   list-style: none;
   padding: 0;
@@ -59,7 +56,6 @@ nav a.active {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Hamburger menu - hidden by default */
 .hamburger {
   display: none;
   font-size: 1.5rem;
@@ -71,7 +67,6 @@ nav a.active {
 }
 
 /* ===== HOMEPAGE LAYOUT ===== */
-/* Hero Container */
 .hero-container {
   width: 100%;
   margin-bottom: 2rem;
@@ -126,7 +121,6 @@ nav a.active {
   background-color: #1557b0;
 }
 
-/* Info Container */
 .info-container {
   padding: 2rem;
   background-color: #f8f9fa;
@@ -158,7 +152,6 @@ nav a.active {
   padding-bottom: 0.5rem;
 }
 
-/* Events Box */
 .events-box ul {
   padding-left: 1.2rem;
 }
@@ -173,7 +166,6 @@ nav a.active {
   border-bottom: none;
 }
 
-/* Weather Box */
 .weather-info {
   display: flex;
   align-items: center;
@@ -204,7 +196,6 @@ nav a.active {
   color: #281e1e;
 }
 
-/* Forecast Box */
 .forecast-days {
   display: flex;
   justify-content: space-between;
@@ -231,7 +222,6 @@ nav a.active {
   font-weight: bold;
 }
 
-/* Business Container */
 .business-container {
   padding: 2rem;
 }
@@ -279,8 +269,7 @@ nav a.active {
   color: #1c1b1b;
 }
 
-/* ===== DIRECTORY PAGE STYLES ===== */
-/* Directory Toggle Buttons */
+/* ===== DIRECTORY PAGE ===== */
 .view-toggle {
   text-align: center;
   margin: 1rem 0;
@@ -305,13 +294,11 @@ nav a.active {
   cursor: not-allowed;
 }
 
-/* Directory Container */
 .directory-container {
   padding: 1rem;
   gap: 1.5rem;
 }
 
-/* Grid view */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -342,7 +329,6 @@ nav a.active {
   border-radius: 4px;
 }
 
-/* List view */
 .list {
   display: block;
 }
@@ -362,114 +348,6 @@ nav a.active {
 .list .directory-card img {
   max-width: 80px;
   border-radius: 4px;
-}
-
-/* ===== FOOTER ===== */
-footer {
-  background-color: #040282;
-  color: white;
-  padding: 1rem;
-  text-align: center;
-}
-
-.social-links a {
-  color: white;
-  margin: 0 0.5rem;
-}
-
-/* ===== RESPONSIVE DESIGN ===== */
-/* Mobile styles */
-@media (max-width: 768px) {
-  /* Header adjustments */
-  .logo-title h1 {
-    font-size: 1.2rem;
-  }
-  
-  /* Show hamburger menu */
-  .hamburger {
-    display: block;
-  }
-  
-  /* Hide navigation by default */
-  nav ul {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #040282;
-    padding: 1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-  }
-  
-  /* Show navigation when hamburger is clicked */
-  nav ul.show {
-    display: flex;
-  }
-  
-  /* Homepage adjustments */
-  .hero-image {
-    height: 300px;
-  }
-  
-  .keynote-ticket {
-    bottom: 10px;
-    right: 10px;
-    max-width: 150px;
-    padding: 0.8rem;
-  }
-  
-  .info-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
-  .business-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
-  .forecast-days {
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .forecast-day {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-align: left;
-  }
-  
-  .weather-info {
-    flex-direction: column;
-    text-align: center;
-    gap: 0.5rem;
-  }
-  
-  /* Directory page adjustments */
-  .list .directory-card {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 0.5rem;
-  }
-}
-
-/* Tablet Responsive Styles */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .info-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .business-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .forecast-box {
-    grid-column: span 2;
-  }
 }
 
 /* ===== FOOTER ===== */
@@ -504,7 +382,6 @@ footer {
   line-height: 1.4;
 }
 
-/* Social Media Icons - Always in a row */
 .footer-social .social-links {
   display: flex;
   justify-content: center;
@@ -543,7 +420,7 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Screen reader only text for accessibility - UPDATED */
+/* Screen reader only text (fixed) */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -551,14 +428,79 @@ footer {
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
   clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
 }
 
-/* Mobile Footer Styles */
+/* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
+  .logo-title h1 {
+    font-size: 1.2rem;
+  }
+  
+  .hamburger {
+    display: block;
+  }
+  
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #040282;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  nav ul.show {
+    display: flex;
+  }
+  
+  .hero-image {
+    height: 300px;
+  }
+  
+  .keynote-ticket {
+    bottom: 10px;
+    right: 10px;
+    max-width: 150px;
+    padding: 0.8rem;
+  }
+  
+  .info-grid,
+  .business-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .forecast-days {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .forecast-day {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+  }
+  
+  .weather-info {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .list .directory-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
   .footer-content {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -574,18 +516,17 @@ footer {
   }
   
   .footer-info {
-    order: 3; /* Move to bottom on mobile */
+    order: 3;
   }
   
   .footer-address {
-    order: 1; /* Move to top on mobile */
+    order: 1;
   }
   
   .footer-social {
-    order: 2; /* Keep in middle on mobile */
+    order: 2;
   }
   
-  /* Mobile adjustments for social icons */
   .footer-social .social-links {
     gap: 0.8rem;
   }
@@ -600,8 +541,16 @@ footer {
   }
 }
 
-/* Tablet Footer Styles */
 @media (min-width: 769px) and (max-width: 1024px) {
+  .info-grid,
+  .business-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .forecast-box {
+    grid-column: span 2;
+  }
+  
   .footer-content {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
@@ -613,7 +562,7 @@ footer {
   }
 }
 
-/* Style for the main H1 */
+/* ===== HEADINGS ===== */
 main h1 {
   text-align: center;
   color: #040282;
@@ -624,7 +573,6 @@ main h1 {
   padding-bottom: 0.5rem;
 }
 
-/* Style for the site name in header */
 .logo-title .site-name {
   font-size: 1.5rem;
   font-weight: bold;
@@ -632,7 +580,6 @@ main h1 {
   margin: 0;
 }
 
-/* Responsive adjustment for H1 */
 @media (max-width: 768px) {
   main h1 {
     font-size: 1.8rem;
@@ -644,12 +591,11 @@ main h1 {
   }
 }
 
-/* Update body font family */
+/* ===== TYPOGRAPHY ===== */
 body {
   font-family: 'Open Sans', sans-serif;
 }
 
-/* For headings, I use Merriweather */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Merriweather', serif;
 }
