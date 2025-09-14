@@ -13,14 +13,14 @@ async function getMembers() {
   }
 }
 
-// Display members based on current view
+// Display members
 function displayMembers(members) {
   directoryContainer.innerHTML = '';
-  
+
   members.forEach(member => {
     const card = document.createElement('div');
     card.classList.add('directory-card');
-    
+
     card.innerHTML = `
       <img src="images/${member.image}" alt="${member.name}" loading="lazy">
       <h3>${member.name}</h3>
@@ -29,14 +29,14 @@ function displayMembers(members) {
       <a href="${member.website}" target="_blank">Visit Website</a>
       <p>Membership Level: ${getMembershipLevel(member.membership)}</p>
     `;
-    
+
     directoryContainer.appendChild(card);
   });
 }
 
 // Convert membership level number to text
 function getMembershipLevel(level) {
-  switch(level) {
+  switch (level) {
     case 1: return 'Member';
     case 2: return 'Silver';
     case 3: return 'Gold';
@@ -48,19 +48,20 @@ function getMembershipLevel(level) {
 gridBtn.addEventListener('click', () => {
   directoryContainer.classList.remove('list');
   directoryContainer.classList.add('grid');
-  gridBtn.disabled = true;
-  listBtn.disabled = false;
+  gridBtn.classList.add('active');
+  listBtn.classList.remove('active');
 });
 
 listBtn.addEventListener('click', () => {
   directoryContainer.classList.remove('grid');
   directoryContainer.classList.add('list');
-  listBtn.disabled = true;
-  gridBtn.disabled = false;
+  listBtn.classList.add('active');
+  gridBtn.classList.remove('active');
 });
 
 // Initialize
 getMembers();
-// Set grid as default view and disable its button
-gridBtn.disabled = true;
 
+// Set default view
+directoryContainer.classList.add('grid');
+gridBtn.classList.add('active');

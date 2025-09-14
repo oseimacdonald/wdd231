@@ -5,7 +5,7 @@
       "address": "123 Innovation Way, Accra",
       "phone": "+233 30 000 0000",
       "website": "https://accratechhub.com",
-      "image": "techhub.png",
+      "image": "techhub1.png",
       "membership": 3
     },
     {
@@ -29,7 +29,7 @@
       "address": "102 Auto Street, East Legon, Accra",
       "phone": "+233 55 112 2334",
       "website": "https://kwamesautorepairs.com",
-      "image": "kwameauto.png",
+      "image": "accrapharma1.png",
       "membership": 1
     },
     {
@@ -37,7 +37,7 @@
       "address": "88 Beach Road, Labadi, Accra",
       "phone": "+233 30 277 8888",
       "website": "https://goldenpalmhotel.com",
-      "image": "goldenpalm.png",
+      "image": "accrafashionboutique1.png",
       "membership": 3
     },
     {
@@ -45,7 +45,7 @@
       "address": "67 Garden Avenue, Madina, Accra",
       "phone": "+233 24 456 7890",
       "website": "https://freshproducegh.com",
-      "image": "freshproduce.png",
+      "image": "goldenspoonrestaurant.png",
       "membership": 2
     },
     {
@@ -53,7 +53,7 @@
       "address": "21 Tech Loop, Spintex Road, Accra",
       "phone": "+233 50 321 7654",
       "website": "https://digitghana.com",
-      "image": "digitghana.png",
+      "image": "buildrightconstruction.png",
       "membership": 3
     }
   ]
