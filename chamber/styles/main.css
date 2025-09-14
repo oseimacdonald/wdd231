@@ -1,0 +1,613 @@
+/* Normalize already linked above */
+
+/* ===== GLOBAL STYLES ===== */
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* ===== HEADER & NAVIGATION ===== */
+header {
+  background-color: #1a73e8;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-title img {
+  width: 40px;
+  height: 40px;
+}
+
+.logo-title h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+/* Navigation */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+nav a:hover, 
+nav a.active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Hamburger menu - hidden by default */
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+/* ===== HOMEPAGE LAYOUT ===== */
+/* Hero Container */
+.hero-container {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.hero-image {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.keynote-ticket {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 200px;
+}
+
+.keynote-ticket h3 {
+  margin: 0 0 0.5rem 0;
+  color: #040282;
+}
+
+.keynote-ticket p {
+  margin: 0 0 1rem 0;
+  color: #281e1e;
+}
+
+.keynote-ticket button {
+  background-color: #040282;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.keynote-ticket button:hover {
+  background-color: #1557b0;
+}
+
+/* Info Container */
+.info-container {
+  padding: 2rem;
+  background-color: #f8f9fa;
+}
+
+.info-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #040282;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.info-box {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-box h3 {
+  margin-top: 0;
+  color: #040282;
+  border-bottom: 2px solid #1a73e8;
+  padding-bottom: 0.5rem;
+}
+
+/* Events Box */
+.events-box ul {
+  padding-left: 1.2rem;
+}
+
+.events-box li {
+  margin-bottom: 0.5rem;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.events-box li:last-child {
+  border-bottom: none;
+}
+
+/* Weather Box */
+.weather-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.weather-info img {
+  width: 64px;
+  height: 64px;
+}
+
+.weather-details .temperature {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  color: #040282;
+}
+
+.weather-details .condition {
+  margin: 0.2rem 0;
+  font-weight: bold;
+}
+
+.weather-details .humidity,
+.weather-details .wind {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+  color: #281e1e;
+}
+
+/* Forecast Box */
+.forecast-days {
+  display: flex;
+  justify-content: space-between;
+}
+
+.forecast-day {
+  text-align: center;
+  flex: 1;
+}
+
+.forecast-day .day {
+  font-weight: bold;
+  margin: 0 0 0.5rem 0;
+}
+
+.forecast-day img {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto;
+}
+
+.forecast-day .temp {
+  margin: 0.5rem 0 0 0;
+  font-weight: bold;
+}
+
+/* Business Container */
+.business-container {
+  padding: 2rem;
+}
+
+.business-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #040282;
+}
+
+.business-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.business-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.business-card:hover {
+  transform: translateY(-5px);
+}
+
+.business-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+
+.business-card h3 {
+  margin: 0 0 0.5rem 0;
+  color: #1a73e8;
+}
+
+.business-card p {
+  margin: 0.3rem 0;
+  color: #1c1b1b;
+}
+
+/* ===== DIRECTORY PAGE STYLES ===== */
+/* Directory Toggle Buttons */
+.view-toggle {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.view-toggle button {
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.view-toggle button:hover {
+  background-color: #1557b0;
+}
+
+.view-toggle button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Directory Container */
+.directory-container {
+  padding: 1rem;
+  gap: 1.5rem;
+}
+
+/* Grid view */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.grid .directory-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.grid .directory-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.grid .directory-card img {
+  max-width: 120px;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+/* List view */
+.list {
+  display: block;
+}
+
+.list .directory-card {
+  display: grid;
+  grid-template-columns: 100px 1fr 1fr 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: white;
+  margin-bottom: 1rem;
+}
+
+.list .directory-card img {
+  max-width: 80px;
+  border-radius: 4px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background-color: #040282;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+.social-links a {
+  color: white;
+  margin: 0 0.5rem;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+/* Mobile styles */
+@media (max-width: 768px) {
+  /* Header adjustments */
+  .logo-title h1 {
+    font-size: 1.2rem;
+  }
+  
+  /* Show hamburger menu */
+  .hamburger {
+    display: block;
+  }
+  
+  /* Hide navigation by default */
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #040282;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  /* Show navigation when hamburger is clicked */
+  nav ul.show {
+    display: flex;
+  }
+  
+  /* Homepage adjustments */
+  .hero-image {
+    height: 300px;
+  }
+  
+  .keynote-ticket {
+    bottom: 10px;
+    right: 10px;
+    max-width: 150px;
+    padding: 0.8rem;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .business-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .forecast-days {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .forecast-day {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+  }
+  
+  .weather-info {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  /* Directory page adjustments */
+  .list .directory-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 0.5rem;
+  }
+}
+
+/* Tablet Responsive Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .business-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .forecast-box {
+    grid-column: span 2;
+  }
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background-color: #040282;
+  color: white;
+  padding: 2rem 1rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  padding: 0 1rem;
+}
+
+.footer-section h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 0.5rem;
+}
+
+.footer-address p {
+  margin: 0.5rem 0;
+  line-height: 1.4;
+}
+
+/* Social Media Icons - Always in a row */
+.footer-social .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-social .social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.footer-social .social-links a:hover {
+  background-color: white;
+  color: #1a73e8;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.footer-social .social-links i {
+  font-size: 1.5rem;
+}
+
+.footer-info p {
+  margin: 0.5rem 0;
+  line-height: 1.4;
+  font-size: 0.9rem;
+}
+
+/* Screen reader only text for accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Mobile Footer Styles */
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .footer-section {
+    padding: 0;
+  }
+  
+  .footer-section h3 {
+    text-align: center;
+  }
+  
+  .footer-info {
+    order: 3; /* Move to bottom on mobile */
+  }
+  
+  .footer-address {
+    order: 1; /* Move to top on mobile */
+  }
+  
+  .footer-social {
+    order: 2; /* Keep in middle on mobile */
+  }
+  
+  /* Mobile adjustments for social icons */
+  .footer-social .social-links {
+    gap: 0.8rem;
+  }
+  
+  .footer-social .social-links a {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .footer-social .social-links i {
+    font-size: 1.3rem;
+  }
+}
+
+/* Tablet Footer Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .footer-info {
+    grid-column: span 2;
+    text-align: center;
+  }
+}

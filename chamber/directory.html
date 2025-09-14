@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Homepage of the Accra Chamber of Commerce" />
+  <meta name="author" content="Mac-Donald Osei Bonsu" />
+
+  <title>Home | Accra Chamber of Commerce</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" />
+
+  <!-- Using font-awesome for social-links images for scalability -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Open Graph Meta Tags for Facebook -->
+  <meta property="og:title" content="Accra Chamber of Commerce | Mac-Donald Osei Bonsu">
+  <meta property="og:description" content="Bringing Accra Businesses Together.">
+  <meta property="og:image" content="https://oseimacdonald.github.io/wdd231/images/me.jpg">
+  <meta property="og:url" content="https://oseimacdonald.github.io/wdd231/chamber/directory.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Accra Businesses">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Accra Chamber of Commerce | Mac-Donald Osei Bonsu">
+  <meta name="twitter:description" content="Bringing Accra Businesses Together.">
+  <meta name="twitter:image" content="https://oseimacdonald.github.io/wdd231/images/me.jpg">
+  <meta name="twitter:creator" content="@oseimacdonald">
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="styles/normalize.css" />
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="styles/main.css" />
+
+  <!-- JavaScript -->
+  <script src="scripts/footer.js" defer></script>
+  <script src="scripts/navigation.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo-title">
+      <img src="images/favicon-32x32.png" alt="Accra Chamber Logo" />
+      <h1>Accra Chamber of Commerce</h1>
+    </div>
+    <button class="hamburger">☰</button>
+    <nav>
+      <ul class="navigation">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="discover.html">Discover</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="podcast.html">Podcast</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Container 1: Hero Image with Keynote Ticket Overlay -->
+    <section class="hero-container">
+      <div class="hero-image">
+        <img src="images/accra-hero.jpg" alt="Accra cityscape" loading="lazy">
+        <div class="keynote-ticket">
+          <h3>Annual Business Keynote</h3>
+          <p>Oct 15, 2023 | 6:00 PM</p>
+          <button>Get Tickets</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Container 2: Events, Weather, Forecast -->
+    <section class="info-container">
+      <h2>Home</h2>
+      <div class="info-grid">
+        <div class="info-box events-box">
+          <h3>Upcoming Events</h3>
+          <ul>
+            <li>Business Networking - Oct 5</li>
+            <li>Startup Workshop - Oct 12</li>
+            <li>Trade Fair - Oct 20-22</li>
+            <li>Entrepreneur Summit - Nov 3</li>
+          </ul>
+        </div>
+        
+        <div class="info-box weather-box">
+          <h3>Current Weather</h3>
+          <div class="weather-info">
+            <img src="images/sunny.png" alt="Sunny" loading="lazy">
+            <div class="weather-details">
+              <p class="temperature">28°C</p>
+              <p class="condition">Sunny</p>
+              <p class="humidity">Humidity: 65%</p>
+              <p class="wind">Wind: 12 km/h</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="info-box forecast-box">
+          <h3>Weather Forecast</h3>
+          <div class="forecast-days">
+            <div class="forecast-day">
+              <p class="day">Today</p>
+              <img src="images/sunny.png" alt="Sunny" loading="lazy">
+              <p class="temp">28°C</p>
+            </div>
+            <div class="forecast-day">
+              <p class="day">Wednesday</p>
+              <img src="images/partly-cloudy.png" alt="Partly Cloudy" loading="lazy">
+              <p class="temp">26°C</p>
+            </div>
+            <div class="forecast-day">
+              <p class="day">Thursday</p>
+              <img src="images/rainy.png" alt="Rainy" loading="lazy">
+              <p class="temp">24°C</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Container 3: Business Spotlights -->
+    <section class="business-container">
+      <h2>Business Spotlights</h2>
+      <div class="business-grid">
+        <div class="business-card">
+          <img src="images/techhub.png" alt="Accra Tech Hub" loading="lazy">
+          <h3>Accra Tech Hub</h3>
+          <p>Innovation Way, Accra</p>
+          <p>+233 30 000 0000</p>
+        </div>
+        <div class="business-card">
+          <img src="images/coffee.png" alt="Ghana Coffee Co." loading="lazy">
+          <h3>Ghana Coffee Co.</h3>
+          <p>Brew Ave, Accra</p>
+          <p>+233 24 123 4567</p>
+        </div>
+        <div class="business-card">
+          <img src="images/prints.png" alt="Local Prints" loading="lazy">
+          <h3>Local Prints</h3>
+          <p>Art Blvd, Accra</p>
+          <p>+233 20 333 4444</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <!-- Left Section: Title and Address -->
+      <div class="footer-section footer-address">
+        <h3>Accra Chamber of Commerce</h3>
+        <p>123 Business District</p>
+        <p>Accra, Ghana</p>
+        <p>info@accrachamber.com</p>
+        <p>+233 24 123 4567</p>
+      </div>
+      
+      <!-- Center Section: Social Links with Icons -->
+      <div class="footer-section footer-social">
+        <h3>Connect With Us</h3>
+        <div class="social-links">
+          <a href="#" target="_blank" title="YouTube">
+            <i class="fab fa-youtube"></i>
+            <span class="sr-only">YouTube</span>
+          </a>
+          <a href="#" target="_blank" title="Twitter">
+            <i class="fab fa-twitter"></i>
+            <span class="sr-only">Twitter</span>
+          </a>
+          <a href="https://linkedin.com/in/oseimacdonald" target="_blank" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+            <span class="sr-only">LinkedIn</span>
+          </a>
+          <a href="https://github.com/oseimacdonald" target="_blank" title="GitHub">
+            <i class="fab fa-github"></i>
+            <span class="sr-only">GitHub</span>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Right Section: Project Info -->
+      <div class="footer-section footer-info">
+        <p>wdd231 project by Mac-Donald Osei Bonsu</p>
+        <p>&copy; <span id="year"></span> Accra Chamber of Commerce</p>
+        <p>Last Modified: <span id="lastModified"></span></p>
+        <p>WDD 231 - Web Frontend Development</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

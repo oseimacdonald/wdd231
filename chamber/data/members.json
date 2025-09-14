@@ -1,0 +1,60 @@
+{
+  "members": [
+    {
+      "name": "Accra Tech Hub",
+      "address": "123 Innovation Way, Accra",
+      "phone": "+233 30 000 0000",
+      "website": "https://accratechhub.com",
+      "image": "techhub.png",
+      "membership": 3
+    },
+    {
+      "name": "Ghana Coffee Co.",
+      "address": "456 Brew Ave, Accra",
+      "phone": "+233 24 123 4567",
+      "website": "https://ghanacoffee.com",
+      "image": "coffee.png",
+      "membership": 2
+    },
+    {
+      "name": "Local Prints",
+      "address": "789 Art Blvd, Accra",
+      "phone": "+233 20 333 4444",
+      "website": "https://localprints.com",
+      "image": "prints.png",
+      "membership": 1
+    },
+    {
+      "name": "Kwame's Auto Repairs",
+      "address": "102 Auto Street, East Legon, Accra",
+      "phone": "+233 55 112 2334",
+      "website": "https://kwamesautorepairs.com",
+      "image": "kwameauto.png",
+      "membership": 1
+    },
+    {
+      "name": "Golden Palm Hotel",
+      "address": "88 Beach Road, Labadi, Accra",
+      "phone": "+233 30 277 8888",
+      "website": "https://goldenpalmhotel.com",
+      "image": "goldenpalm.png",
+      "membership": 3
+    },
+    {
+      "name": "Fresh Produce Market",
+      "address": "67 Garden Avenue, Madina, Accra",
+      "phone": "+233 24 456 7890",
+      "website": "https://freshproducegh.com",
+      "image": "freshproduce.png",
+      "membership": 2
+    },
+    {
+      "name": "DigitGhana Solutions",
+      "address": "21 Tech Loop, Spintex Road, Accra",
+      "phone": "+233 50 321 7654",
+      "website": "https://digitghana.com",
+      "image": "digitghana.png",
+      "membership": 3
+    }
+  ]
+}
