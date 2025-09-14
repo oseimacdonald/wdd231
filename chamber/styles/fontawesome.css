@@ -1,0 +1,28 @@
+/* ====== Font Awesome Brands (cleaned subset) ====== */
+
+@font-face {
+  font-family: "Font Awesome 5 Brands";
+  font-style: normal;
+  font-weight: normal;
+  src: url("fontawesome-free-5.15.4-web/webfonts/fa-brands-400.woff2") format("woff2"),
+       url("fontawesome-free-5.15.4-web/webfonts/fa-brands-400.woff") format("woff");
+}
+
+.fab {
+  font-family: "Font Awesome 5 Brands";
+  font-weight: normal;
+}
+
+/* Only keep icons you actually use */
+.fa-facebook:before {
+  content: "\f09a";
+}
+.fa-twitter:before {
+  content: "\f099";
+}
+.fa-linkedin:before {
+  content: "\f08c";
+}
+.fa-instagram:before {
+  content: "\f16d";
+}

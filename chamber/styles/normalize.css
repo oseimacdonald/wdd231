@@ -1,12 +1,9 @@
-/*! normalize.css – cleaned version, prefix-free, strict W3C valid */
-
-/* Document ========================================================================== */
+/* ====== Normalize (cleaned, validator-safe) ====== */
 
 html {
   line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
 }
-
-/* Sections ========================================================================== */
 
 body {
   margin: 0;
@@ -21,8 +18,6 @@ h1 {
   margin: 0.67em 0;
 }
 
-/* Grouping content ========================================================================== */
-
 hr {
   box-sizing: content-box;
   height: 0;
@@ -33,8 +28,6 @@ pre {
   font-family: monospace, monospace;
   font-size: 1em;
 }
-
-/* Text-level semantics ========================================================================== */
 
 a {
   background-color: transparent;
@@ -69,16 +62,17 @@ sup {
   vertical-align: baseline;
 }
 
-sub { bottom: -0.25em; }
-sup { top: -0.5em; }
+sub {
+  bottom: -0.25em;
+}
 
-/* Embedded content ========================================================================== */
+sup {
+  top: -0.5em;
+}
 
 img {
   border-style: none;
 }
-
-/* Forms ========================================================================== */
 
 button,
 input,
@@ -92,15 +86,20 @@ textarea {
 }
 
 button,
-input { overflow: visible; }
+input {
+  overflow: visible;
+}
+
 button,
-select { text-transform: none; }
+select {
+  text-transform: none;
+}
 
 button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
-  appearance: button;
+  appearance: auto; /* ✅ spec-safe */
 }
 
 fieldset {
@@ -116,8 +115,13 @@ legend {
   white-space: normal;
 }
 
-progress { vertical-align: baseline; }
-textarea { overflow: auto; }
+progress {
+  vertical-align: baseline;
+}
+
+textarea {
+  overflow: auto;
+}
 
 [type="checkbox"],
 [type="radio"] {
@@ -125,17 +129,27 @@ textarea { overflow: auto; }
   padding: 0;
 }
 
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
 [type="search"] {
-  appearance: textfield;
   outline-offset: -2px;
 }
 
-/* Interactive ========================================================================== */
+::-webkit-file-upload-button {
+  font: inherit;
+}
 
-details { display: block; }
-summary { display: list-item; }
-
-/* Misc ========================================================================== */
-
-template { display: none; }
-[hidden] { display: none; }
+/* Accessibility utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%); /* ✅ no deprecated clip */
+  border: 0;
+}
