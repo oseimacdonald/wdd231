@@ -11,23 +11,30 @@
   <!-- Favicon -->
   <link rel="icon" href="favicon.ico" />
 
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Google Fonts API -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
   <!-- Using font-awesome for social-links images for scalability -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- Open Graph Meta Tags for Facebook -->
-  <meta property="og:title" content="Accra Chamber of Commerce | Mac-Donald Osei Bonsu">
+  <meta property="og:title" content="Home | Accra Chamber of Commerce">
   <meta property="og:description" content="Bringing Accra Businesses Together.">
-  <meta property="og:image" content="https://oseimacdonald.github.io/wdd231/images/me.jpg">
-  <meta property="og:url" content="https://oseimacdonald.github.io/wdd231/chamber/directory.html">
+  <meta property="og:image" content="https://oseimacdonald.github.io/wdd231/images/accra-hero.jpg">
+  <meta property="og:url" content="https://oseimacdonald.github.io/wdd231/chamber/index.html">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Accra Businesses">
+  <meta property="og:site_name" content="Accra Chamber of Commerce">
   <meta property="og:locale" content="en_US">
   
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Accra Chamber of Commerce | Mac-Donald Osei Bonsu">
+  <meta name="twitter:title" content="Home | Accra Chamber of Commerce">
   <meta name="twitter:description" content="Bringing Accra Businesses Together.">
-  <meta name="twitter:image" content="https://oseimacdonald.github.io/wdd231/images/me.jpg">
+  <meta name="twitter:image" content="https://oseimacdonald.github.io/wdd231/images/accra-hero.jpg">
   <meta name="twitter:creator" content="@oseimacdonald">
 
   <!-- Normalize CSS -->
@@ -44,7 +51,7 @@
   <header>
     <div class="logo-title">
       <img src="images/favicon-32x32.png" alt="Accra Chamber Logo" />
-      <h1>Accra Chamber of Commerce</h1>
+      <span class="site-name">Accra Chamber of Commerce</span>
     </div>
     <button class="hamburger">☰</button>
     <nav>
@@ -61,12 +68,15 @@
   </header>
 
   <main>
+    <!-- H1 as the first element in main, matching page title -->
+    <h1>Welcome to Accra Chamber of Commerce</h1>
+    
     <!-- Container 1: Hero Image with Keynote Ticket Overlay -->
     <section class="hero-container">
       <div class="hero-image">
         <img src="images/accra-hero.jpg" alt="Accra cityscape" loading="lazy">
         <div class="keynote-ticket">
-          <h3>Annual Business Keynote</h3>
+          <h2>Annual Business Keynote</h2>
           <p>Oct 15, 2023 | 6:00 PM</p>
           <button>Get Tickets</button>
         </div>
@@ -75,7 +85,7 @@
 
     <!-- Container 2: Events, Weather, Forecast -->
     <section class="info-container">
-      <h2>Home</h2>
+      <h2>Events and Weather</h2>
       <div class="info-grid">
         <div class="info-box events-box">
           <h3>Upcoming Events</h3>
@@ -128,13 +138,13 @@
       <h2>Business Spotlights</h2>
       <div class="business-grid">
         <div class="business-card">
-          <img src="images/techhub.png" alt="Accra Tech Hub" loading="lazy">
+          <img src="images/techhub.jpg" alt="Accra Tech Hub" loading="lazy">
           <h3>Accra Tech Hub</h3>
           <p>Innovation Way, Accra</p>
           <p>+233 30 000 0000</p>
         </div>
         <div class="business-card">
-          <img src="images/coffee.png" alt="Ghana Coffee Co." loading="lazy">
+          <img src="images/coffee.webp" alt="Ghana Coffee Co." loading="lazy">
           <h3>Ghana Coffee Co.</h3>
           <p>Brew Ave, Accra</p>
           <p>+233 24 123 4567</p>
