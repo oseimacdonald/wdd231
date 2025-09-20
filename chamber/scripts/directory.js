@@ -65,3 +65,4 @@ getMembers();
 // Set default view
 directoryContainer.classList.add('grid');
 gridBtn.classList.add('active');
+
