@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const conditionEl = document.querySelector('.condition');
   const humidityEl = document.querySelector('.humidity');
   const windEl = document.querySelector('.wind');
-  const iconEl = document.querySelector('.weather-icon');
+  const iconEl = document.querySelector('.weather-icon-container');
   const forecastContainer = document.querySelector('.forecast-days');
 
   async function loadWeather() {
@@ -101,3 +101,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   loadWeather();
 });
+
+const weatherIcon = document.createElement('img');
+weatherIcon.src = `https://openweathermap.org/img/wn/${currentData.weather[0].icon}@2x.png`;
+weatherIcon.alt = currentData.weather[0].description;
+weatherIcon.loading = 'lazy';
+weatherIcon.classList.add('weather-icon');
+
+iconContainer.innerHTML = ''; // clear old icon if any
+iconContainer.appendChild(weatherIcon);
+
