@@ -102,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loadWeather();
 });
 
+/*
 const weatherIcon = document.createElement('img');
 weatherIcon.src = `https://openweathermap.org/img/wn/${currentData.weather[0].icon}@2x.png`;
 weatherIcon.alt = currentData.weather[0].description;
@@ -110,4 +111,4 @@ weatherIcon.classList.add('weather-icon');
 
 iconContainer.innerHTML = ''; // clear old icon if any
 iconContainer.appendChild(weatherIcon);
-
+*/
