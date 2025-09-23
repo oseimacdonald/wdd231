@@ -235,10 +235,19 @@ footer { background-color: #040282; color: white; padding: 2rem 1rem; }
 @media (max-width: 768px) {
   .hamburger { display: block; }
   nav ul {
-    display: none; flex-direction: column; width: 100%;
-    position: absolute; top: 100%; left: 0;
-    background-color: #040282; padding: 1rem;
-  }
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  position: absolute;
+  transition: max-height 0.3s ease-in-out;
+  top: 100%;
+  left: 0;
+  background-color: #040282;
+  padding: 1rem;
+  max-height: 80vh; /* Limit height to allow scrolling */
+  overflow-y: auto; /* Enable scroll if nav items overflow */
+  z-index: 999; /* Ensure it's above other content */
+}
   nav ul.show { display: flex; }
   .hero-image { height: 300px; }
   .info-grid, .business-grid { grid-template-columns: 1fr; }

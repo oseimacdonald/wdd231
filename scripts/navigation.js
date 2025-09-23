@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const navigation = document.querySelector('.navigation');
     
     hamburger.addEventListener('click', () => {
-        const isExpanded = navigation.classList.toggle('active');
-        hamburger.classList.toggle('active');
+        const isExpanded = navigation.classList.toggle('show');
+        hamburger.classList.toggle('show');
         hamburger.setAttribute('aria-expanded', isExpanded);
     });
     
@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             if (window.innerWidth < 768) {
-                navigation.classList.remove('active');
-                hamburger.classList.remove('active');
+                navigation.classList.remove('show');
+                hamburger.classList.remove('show');
                 hamburger.setAttribute('aria-expanded', 'false');
             }
         });
@@ -24,11 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close navigation when clicking outside
     document.addEventListener('click', (e) => {
         if (window.innerWidth < 768 && 
-            navigation.classList.contains('active') &&
+            navigation.classList.contains('show') &&
             !e.target.closest('.navigation') && 
             !e.target.closest('.hamburger')) {
-            navigation.classList.remove('active');
-            hamburger.classList.remove('active');
+            navigation.classList.remove('show');
+            hamburger.classList.remove('show');
             hamburger.setAttribute('aria-expanded', 'false');
         }
     });
