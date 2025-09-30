@@ -171,3 +171,51 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(item);
     });
 });
+
+// scripts/date.js - Safe version that checks for element existence
+document.addEventListener('DOMContentLoaded', function() {
+    // Set current year - works with multiple element IDs
+    const yearElements = [
+        document.getElementById('currentYear'),
+        document.getElementById('year')
+    ];
+    
+    yearElements.forEach(element => {
+        if (element) {
+            element.textContent = new Date().getFullYear();
+        }
+    });
+    
+    // Set last modified date - works with multiple element IDs
+    const lastModifiedElements = [
+        document.getElementById('lastModified'),
+        document.getElementById('lastModifiedDate')
+    ];
+    
+    lastModifiedElements.forEach(element => {
+        if (element) {
+            element.textContent = document.lastModified;
+        }
+    });
+});
+
+// Utility function for formatting dates
+function formatDate(dateString) {
+    if (!dateString) return 'Not provided';
+    
+    try {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+    } catch (error) {
+        return 'Invalid date';
+    }
+}
+
+// Make available globally
+window.formatDate = formatDate;
