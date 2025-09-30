@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Join the Accra Chamber of Commerce - Membership Application" />
+  <meta name="author" content="Mac-Donald Osei Bonsu" />
+
+  <title>Join Our Chamber | Accra Chamber of Commerce</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" />
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Google Fonts API -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Open Graph Meta Tags for Facebook -->
+  <meta property="og:title" content="Join Our Chamber | Accra Chamber of Commerce">
+  <meta property="og:description" content="Become a member of our chamber and unlock opportunities for networking, business growth, and community engagement.">
+  <meta property="og:image" content="https://oseimacdonald.github.io/wdd231/images/accra-hero.jpg">
+  <meta property="og:url" content="https://oseimacdonald.github.io/wdd231/chamber/join.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Accra Chamber of Commerce">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Join Our Chamber | Accra Chamber of Commerce">
+  <meta name="twitter:description" content="Become a member of our chamber and unlock opportunities for networking, business growth, and community engagement.">
+  <meta name="twitter:image" content="https://oseimacdonald.github.io/wdd231/images/accra-hero.jpg">
+  <meta name="twitter:creator" content="@oseimacdonald">
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="styles/normalize.css" />  
+
+  <!-- Fontawesome CSS -->
+  <link rel="stylesheet" href="styles/fontawesome.css" /> 
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/join.css" />
+
+  <!-- JavaScript -->
+  <script src="scripts/footer.js" defer></script>
+  <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/join.js" defer></script>
+
+
+
+</head>
+<body class="join-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <header>
+    <div class="logo-title">
+      <img src="images/favicon-32x32.png" alt="Accra Chamber Logo" />
+      <span class="site-name">Accra Chamber of Commerce</span>
+    </div>
+    <button class="hamburger" aria-controls="primary-navigation" aria-expanded="false">☰</button>
+    <nav>
+      <ul class="navigation" id="primary-navigation">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="discover.html">Discover</a></li>
+        <li><a href="directory.html" class="active">Directory</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="podcast.html">Podcast</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- Page Title -->
+    <h1>Join Our Chamber of Commerce</h1>
+    
+    <!-- Hero Section -->
+    <section class="hero-container">
+      <div class="hero-image">
+        <img src="images/accra-hero.jpg" alt="Accra cityscape" loading="lazy">
+        <div class="hero-overlay">
+          <h2>Start Your Membership Journey</h2>
+          <p>Connect, Grow, and Thrive With Us</p>
+          <button class="btn-primary" onclick="document.getElementById('joinForm').scrollIntoView({behavior: 'smooth'})">Apply Now</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Membership Application Section -->
+    <section class="info-container">
+      <h2>Membership Application</h2>
+      <div class="info-grid">
+        <div class="application-box">
+          <h3>Application Form</h3>
+          <form method="get" action="thankyou.html" id="joinForm" class="membership-form">
+            <div class="form-group">
+              <label for="firstName">First Name *</label>
+              <input type="text" id="firstName" name="firstName" required 
+                     autocomplete="given-name" title="Please enter your first name">
+            </div>
+            
+            <div class="form-group">
+              <label for="lastName">Last Name *</label>
+              <input type="text" id="lastName" name="lastName" required 
+                     autocomplete="family-name" title="Please enter your last name">
+            </div>
+            
+            <div class="form-group">
+              <label for="title">Organization Title</label>
+              <input type="text" id="title" name="title" 
+                     autocomplete="organization-title" 
+                     pattern="[A-Za-z\s\-]{7,}" 
+                     title="Please enter your organizational title (minimum 7 characters, letters, hyphens, and spaces only)">
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required 
+                     autocomplete="email" placeholder="example@domain.com"
+                     title="Please enter a valid email address">
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">Mobile Phone Number *</label>
+              <input type="tel" id="phone" name="phone" required 
+                     autocomplete="tel" title="Please enter your mobile phone number">
+            </div>
+            
+            <div class="form-group">
+              <label for="businessName">Business/Organization Name *</label>
+              <input type="text" id="businessName" name="businessName" required 
+                     autocomplete="organization" title="Please enter your business or organization name">
+            </div>
+            
+            <div class="form-group">
+              <label for="membershipLevel">Membership Level *</label>
+              <select id="membershipLevel" name="membershipLevel" required title="Please select a membership level">
+                <option value="">Select a Level</option>
+                <option value="np">NP Membership (Non-Profit)</option>
+                <option value="bronze">Bronze Membership</option>
+                <option value="silver">Silver Membership</option>
+                <option value="gold">Gold Membership</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="description">Business/Organization Description</label>
+              <textarea id="description" name="description" rows="4" 
+                        title="Please describe your business or organization"></textarea>
+            </div>
+            
+            <input type="hidden" id="timestamp" name="timestamp">
+            
+            <button type="submit" class="btn-primary">Submit Membership Application</button>
+          </form>
+        </div>
+        
+        <div class="levels-box">
+          <h3>Quick Comparison</h3>
+          <div class="levels-comparison">
+            <div class="level-item">
+              <h4>NP Membership</h4>
+              <p class="price">No Fee</p>
+              <p>Perfect for non-profit organizations</p>
+            </div>
+            <div class="level-item">
+              <h4>Bronze</h4>
+              <p class="price">$250/year</p>
+              <p>Great for small businesses</p>
+            </div>
+            <div class="level-item">
+              <h4>Silver</h4>
+              <p class="price">$500/year</p>
+              <p>Ideal for growing companies</p>
+            </div>
+            <div class="level-item">
+              <h4>Gold</h4>
+              <p class="price">$1,000/year</p>
+              <p>Maximum exposure & benefits</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Membership Levels Section -->
+    <section class="card">
+      <h2>Membership Levels & Benefits</h2>
+
+      <div class="view-toggle">
+        <button id="gridBtn" class="active">Grid View</button>
+        <button id="listBtn">List View</button>
+      </div>
+
+      <div id="membershipContainer" class="grid">
+        <!-- Membership cards will be loaded via JS -->
+        <div class="membership-card" data-level="np">
+          <div class="card-header">
+            <h3>NP Membership</h3>
+            <span class="price-tag">No Fee</span>
+          </div>
+          <div class="card-content">
+            <p class="card-description">Designed specifically for non-profit organizations to connect with the business community.</p>
+            <ul class="benefits-preview">
+              <li>Business directory listing</li>
+              <li>Networking events access</li>
+              <li>Monthly newsletter</li>
+              <li>Social media mentions</li>
+            </ul>
+            <a class="learn-more" data-modal="np-modal">View All Benefits</a>
+          </div>
+        </div>
+        
+        <div class="membership-card" data-level="bronze">
+          <div class="card-header">
+            <h3>Bronze Membership</h3>
+            <span class="price-tag">$250/year</span>
+          </div>
+          <div class="card-content">
+            <p class="card-description">Essential benefits for small businesses looking to establish a community presence.</p>
+            <ul class="benefits-preview">
+              <li>All NP benefits</li>
+              <li>Enhanced directory listing</li>
+              <li>10% event discounts</li>
+              <li>Training workshops</li>
+            </ul>
+            <a class="learn-more" data-modal="bronze-modal">View All Benefits</a>
+          </div>
+        </div>
+        
+        <div class="membership-card" data-level="silver">
+          <div class="card-header">
+            <h3>Silver Membership</h3>
+            <span class="price-tag">$500/year</span>
+          </div>
+          <div class="card-content">
+            <p class="card-description">Enhanced visibility and networking for growing businesses seeking more exposure.</p>
+            <ul class="benefits-preview">
+              <li>All Bronze benefits</li>
+              <li>20% event discounts</li>
+              <li>Priority directory listing</li>
+              <li>Member spotlight features</li>
+            </ul>
+            <a class="learn-more" data-modal="silver-modal">View All Benefits</a>
+          </div>
+        </div>
+        
+        <div class="membership-card" data-level="gold">
+          <div class="card-header">
+            <h3>Gold Membership</h3>
+            <span class="price-tag">$1,000/year</span>
+          </div>
+          <div class="card-content">
+            <p class="card-description">Premium benefits for established businesses seeking maximum exposure and influence.</p>
+            <ul class="benefits-preview">
+              <li>All Silver benefits</li>
+              <li>30% event discounts</li>
+              <li>Premium directory placement</li>
+              <li>Speaking opportunities</li>
+            </ul>
+            <a class="learn-more" data-modal="gold-modal">View All Benefits</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Membership Modals -->
+  <div id="np-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>NP Membership Benefits</h2>
+      <p>Our NP Membership is designed specifically for non-profit organizations to help them connect with the business community.</p>
+      <ul class="benefits-list">
+        <li>Business listing in our online directory</li>
+        <li>Access to member-only networking events</li>
+        <li>Monthly newsletter subscription</li>
+        <li>Social media mentions</li>
+        <li>Volunteer opportunity postings</li>
+        <li>Community engagement opportunities</li>
+        <li>Non-profit resource center access</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="bronze-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Bronze Membership Benefits</h2>
+      <p>Our Bronze Membership offers essential benefits for small businesses looking to establish a presence in the community.</p>
+      <ul class="benefits-list">
+        <li>All NP Membership benefits</li>
+        <li>Enhanced business listing with logo</li>
+        <li>10% discount on chamber events</li>
+        <li>Access to business training workshops</li>
+        <li>Member-to-member discounts</li>
+        <li>Quarterly business spotlight opportunity</li>
+        <li>Business referral program access</li>
+        <li>Annual business directory inclusion</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="silver-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Silver Membership Benefits</h2>
+      <p>Our Silver Membership provides enhanced visibility and networking opportunities for growing businesses.</p>
+      <ul class="benefits-list">
+        <li>All Bronze Membership benefits</li>
+        <li>20% discount on chamber events</li>
+        <li>Priority listing in directory</li>
+        <li>Featured in monthly member spotlight</li>
+        <li>Complimentary tickets to two major events annually</li>
+        <li>Access to exclusive Silver member networking events</li>
+        <li>Business referral program</li>
+        <li>Enhanced social media promotion</li>
+        <li>Business mentoring sessions</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="gold-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Gold Membership Benefits</h2>
+      <p>Our Gold Membership offers premium benefits for established businesses seeking maximum exposure and influence.</p>
+      <ul class="benefits-list">
+        <li>All Silver Membership benefits</li>
+        <li>30% discount on chamber events</li>
+        <li>Premium placement in directory and website</li>
+        <li>Featured in quarterly newsletter profile</li>
+        <li>Complimentary tickets to four major events annually</li>
+        <li>Speaking opportunities at chamber events</li>
+        <li>VIP access to annual gala</li>
+        <li>Board committee participation opportunities</li>
+        <li>Customized business introductions</li>
+        <li>Priority access to sponsorship opportunities</li>
+        <li>Executive networking events</li>
+        <li>Media exposure opportunities</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <!-- Left Section -->
+      <div class="footer-section footer-address">
+        <h3>Accra Chamber of Commerce</h3>
+        <p>123 Business District</p>
+        <p>Accra, Ghana</p>
+        <p>info@accrachamber.com</p>
+        <p>+233 24 123 4567</p>
+      </div>
+      
+      <!-- Center: Social Links -->
+      <div class="footer-section footer-social">
+        <h3>Connect With Us</h3>
+        <div class="social-links">
+          <a href="#" target="_blank" title="YouTube">
+            <i class="fab fa-youtube"></i>
+            <span class="sr-only">YouTube</span>
+          </a>
+          <a href="#" target="_blank" title="Twitter">
+            <i class="fab fa-twitter"></i>
+            <span class="sr-only">Twitter</span>
+          </a>
+          <a href="https://linkedin.com/in/oseimacdonald" target="_blank" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+            <span class="sr-only">LinkedIn</span>
+          </a>
+          <a href="https://github.com/oseimacdonald" target="_blank" title="GitHub">
+            <i class="fab fa-github"></i>
+            <span class="sr-only">GitHub</span>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Right: Project Info -->
+      <div class="footer-section footer-info">
+        <p>wdd231 project by Mac-Donald Osei Bonsu</p>
+        <p>&copy; <span id="year"></span> Accra Chamber of Commerce</p>
+        <p>Last Modified: <span id="lastModified"></span></p>
+        <p>WDD 231 - Web Frontend Development</p>
+      </div>
+    </div>
+  </footer>
+
+</body>  
+</html>

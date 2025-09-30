@@ -142,6 +142,22 @@ textarea {
   font: inherit;
 }
 
+details {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+
+template {
+  display: none;
+}
+
+[hidden] {
+  display: none;
+}
+
 /* Accessibility utility */
 .sr-only {
   position: absolute;
@@ -153,4 +169,3 @@ textarea {
   clip-path: inset(50%); /* ✅ no deprecated clip */
   border: 0;
 }
-

@@ -1,68 +1,73 @@
-// navigation.js - Enhanced with active page detection
+// navigation.js - Enhanced with active page detection and responsive navigation
 document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.querySelector('.hamburger');
   const navigation = document.querySelector('.navigation');
-  
-  // Set active navigation item based on current page
+  const navLinks = document.querySelectorAll('.navigation a');
+
+  /**
+   * Set the active navigation link based on current page
+   */
   function setActiveNavItem() {
-    const navLinks = document.querySelectorAll('.navigation a');
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    
+
     navLinks.forEach(link => {
       const linkPage = link.getAttribute('href');
-      // Remove active class from all links
       link.classList.remove('active');
-      
-      // Check if this link matches the current page
-      if (linkPage === currentPage) {
+
+      if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
         link.classList.add('active');
-      }
-      
-      // Special case for index.html (homepage)
-      if (currentPage === '' || currentPage === 'index.html' && linkPage === 'index.html') {
-        document.querySelector('.navigation a[href="index.html"]').classList.add('active');
       }
     });
   }
-  
-  // Toggle mobile navigation
+
+  /**
+   * Toggle mobile navigation menu
+   */
+  function toggleNavigation() {
+    const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', String(!isExpanded));
+    hamburger.classList.toggle('active');
+    navigation.classList.toggle('active');
+  }
+
+  /**
+   * Close mobile navigation menu
+   */
+  function closeNavigation() {
+    navigation.classList.remove('active');
+    hamburger.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
+  }
+
+  // Hamburger click event
   if (hamburger && navigation) {
-    hamburger.addEventListener('click', () => {
-      navigation.classList.toggle('show');
-      hamburger.textContent = navigation.classList.contains('show') ? '✕' : '☰';
-      hamburger.setAttribute('aria-expanded', navigation.classList.contains('show'));
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (navigation.classList.contains('show') && 
-          !navigation.contains(e.target) && 
-          e.target !== hamburger) {
-        navigation.classList.remove('show');
-        hamburger.textContent = '☰';
-        hamburger.setAttribute('aria-expanded', 'false');
-      }
-    });
-    
-    // Close menu when clicking on a link
-    const navLinks = document.querySelectorAll('.navigation a');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navigation.classList.remove('show');
-        hamburger.textContent = '☰';
-        hamburger.setAttribute('aria-expanded', 'false');
-      });
-    });
-    
-    // Handle keyboard navigation
+    hamburger.addEventListener('click', toggleNavigation);
+
+    // Support keyboard interaction (Enter or Space)
     hamburger.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        hamburger.click();
+        toggleNavigation();
       }
     });
   }
-  
-  // Set active navigation item
+
+  // Close mobile menu when a nav link is clicked (on small screens)
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 768 && navigation.classList.contains('active')) {
+        closeNavigation();
+      }
+    });
+  });
+
+  // Ensure mobile nav is closed when resizing to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      closeNavigation();
+    }
+  });
+
+  // Set the active navigation item on page load
   setActiveNavItem();
 });

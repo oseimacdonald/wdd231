@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WDD231 Course Home Page - showcasing projects and coursework">
+    <meta name="author" content="Mac-Donald Osei Bonsu">
+    <title>Join Our Chamber | Your Chamber Name</title>
+
+        <!-- Open Graph Meta Tags for Facebook -->
+    <meta property="og:title" content="WDD231 - Course Home Page | Mac-Donald Osei Bonsu">
+    <meta property="og:description" content="Web Development student portfolio showcasing projects, coursework, and skills in HTML, CSS, JavaScript, and web frameworks.">
+    <meta property="og:image" content="https://oseimacdonald.github.io/wdd231/images/me.jpg">
+    <meta property="og:url" content="https://oseimacdonald.github.io/wdd231/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Become a Member">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="WDD231 - Course Home Page | Mac-Donald Osei Bonsu">
+    <meta name="twitter:description" content="Web Development student portfolio showcasing projects, coursework, and skills in HTML, CSS, JavaScript, and web frameworks.">
+    <meta name="twitter:image" content="https://oseimacdonald.github.io/wdd231/images/me.jpg">
+    <meta name="twitter:creator" content="@oseimacdonald">
+
+    <!--favicon-->
+    <link rel="icon" href="images/favicon.ico">
+        
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css" media="(min-width: 768px)">
+
+      <!-- Thank You Page Styles -->
+    <link rel="stylesheet" href="styles/thankyou.css" />
+    
+    <!-- JavaScript Files (deferred) -->
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/date.js" defer></script>
+    <script src="scripts/course.js" defer></script>
+    <script src="scripts/join.js" defer></script>
+    <script src="scripts/thankyou.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo-title">
+      <img src="images/favicon-32x32.png" alt="Accra Chamber Logo" />
+      <span class="site-name">Accra Chamber of Commerce</span>
+    </div>
+    <button class="hamburger" aria-controls="primary-navigation" aria-expanded="false">☰</button>
+    <nav>
+      <ul class="navigation" id="primary-navigation">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="discover.html">Discover</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="podcast.html">Podcast</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Page Title -->
+    <h1>Thank You for Your Application!</h1>
+    
+    <!-- Hero Section -->
+    <section class="hero-container">
+      <div class="hero-image">
+        <img src="images/accra-hero.jpg" alt="Accra cityscape" loading="lazy">
+        <div class="hero-overlay">
+          <h2>Welcome to Our Community</h2>
+          <p>Your journey with Accra Chamber of Commerce begins now</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Application Confirmation Section -->
+    <section class="confirmation-container">
+      <div class="confirmation-card">
+        <div class="confirmation-header">
+          <i class="fas fa-check-circle"></i>
+          <h2>Application Received Successfully</h2>
+        </div>
+        
+        <div class="confirmation-content">
+          <p class="confirmation-message">
+            Thank you for choosing to join the Accra Chamber of Commerce. We're excited to have you as part of our business community. 
+            Our team will review your application and contact you within 2-3 business days.
+          </p>
+
+          <!-- Application Summary -->
+          <div class="application-summary">
+            <h3>Application Summary</h3>
+            <div class="summary-grid">
+              <div class="summary-item">
+                <strong>First Name:</strong>
+                <span id="summary-firstName">Loading...</span>
+              </div>
+              <div class="summary-item">
+                <strong>Last Name:</strong>
+                <span id="summary-lastName">Loading...</span>
+              </div>
+              <div class="summary-item">
+                <strong>Email:</strong>
+                <span id="summary-email">Loading...</span>
+              </div>
+              <div class="summary-item">
+                <strong>Phone:</strong>
+                <span id="summary-phone">Loading...</span>
+              </div>
+              <div class="summary-item">
+                <strong>Business Name:</strong>
+                <span id="summary-businessName">Loading...</span>
+              </div>
+              <div class="summary-item">
+                <strong>Membership Level:</strong>
+                <span id="summary-membershipLevel">Loading...</span>
+              </div>
+              <div class="summary-item full-width">
+                <strong>Application Date:</strong>
+                <span id="summary-timestamp">Loading...</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Next Steps -->
+          <div class="next-steps">
+            <h3>What Happens Next?</h3>
+            <div class="steps-timeline">
+              <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h4>Application Review</h4>
+                  <p>Our membership team will review your application</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h4>Welcome Package</h4>
+                  <p>You'll receive a welcome email with membership details</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h4>Onboarding</h4>
+                  <p>Schedule your orientation session with our team</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="action-buttons">
+            <a href="index.html" class="btn btn-primary">
+              <i class="fas fa-home"></i>
+              Return to Home
+            </a>
+            <a href="directory.html" class="btn btn-secondary">
+              <i class="fas fa-building"></i>
+              Explore Directory
+            </a>
+            <a href="events.html" class="btn btn-secondary">
+              <i class="fas fa-calendar-alt"></i>
+              View Events
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Membership Benefits Reminder -->
+    <section class="benefits-reminder">
+      <div class="card">
+        <h2>Get Ready to Enjoy Your Membership Benefits</h2>
+        <div class="benefits-grid">
+          <div class="benefit-item">
+            <i class="fas fa-network-wired"></i>
+            <h4>Networking</h4>
+            <p>Connect with local business leaders and entrepreneurs</p>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-chart-line"></i>
+            <h4>Growth</h4>
+            <p>Access resources to help your business grow</p>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-bullhorn"></i>
+            <h4>Exposure</h4>
+            <p>Increase your business visibility in the community</p>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-graduation-cap"></i>
+            <h4>Learning</h4>
+            <p>Participate in workshops and training sessions</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <!-- Left Section -->
+      <div class="footer-section footer-address">
+        <h3>Accra Chamber of Commerce</h3>
+        <p>123 Business District</p>
+        <p>Accra, Ghana</p>
+        <p>info@accrachamber.com</p>
+        <p>+233 24 123 4567</p>
+      </div>
+      
+      <!-- Center: Social Links -->
+      <div class="footer-section footer-social">
+        <h3>Connect With Us</h3>
+        <div class="social-links">
+          <a href="#" target="_blank" title="YouTube">
+            <i class="fab fa-youtube"></i>
+            <span class="sr-only">YouTube</span>
+          </a>
+          <a href="#" target="_blank" title="Twitter">
+            <i class="fab fa-twitter"></i>
+            <span class="sr-only">Twitter</span>
+          </a>
+          <a href="https://linkedin.com/in/oseimacdonald" target="_blank" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+            <span class="sr-only">LinkedIn</span>
+          </a>
+          <a href="https://github.com/oseimacdonald" target="_blank" title="GitHub">
+            <i class="fab fa-github"></i>
+            <span class="sr-only">GitHub</span>
+          </a>
+        </div>
+      </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/oseimacdonald" aria-label="GitHub profile">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+            </a>
+            <a href="https://linkedin.com/in/oseimacdonald" aria-label="LinkedIn profile">
+                <svg width="24" height="24" viewBox="极 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+            </a>
+        </div>
+        
+        <p>&copy; <span id="currentYear"></span> Mac-Donald Osei Bonsu : Accra-Ghana</p>
+        <p id="lastModified"></p>
+    </footer>
+
+</body>
+</html>
