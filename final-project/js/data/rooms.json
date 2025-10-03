@@ -1,0 +1,27 @@
+{
+    "rooms": [
+        {
+            "id": 1,
+            "name": "Comfort Room",
+            "type": "standard",
+            "price": 199,
+            "capacity": 2,
+            "amenities": ["WiFi", "TV", "Mini Bar"],
+            "available": true,
+            "image": "images/comfort-room.jpg",
+            "description": "Cozy and comfortable standard room"
+        },
+        {
+            "id": 2,
+            "name": "Superior Room",
+            "type": "premium",
+            "price": 299,
+            "capacity": 3,
+            "amenities": ["WiFi", "TV", "Mini Bar", "Ocean View"],
+            "available": true,
+            "image": "images/superior-room.jpg",
+            "description": "Spacious room with premium amenities"
+        }
+         
+    ]
+}

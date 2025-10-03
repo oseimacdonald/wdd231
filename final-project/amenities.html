@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover Dana Hotel's premium amenities - luxury spa, fine dining restaurant, state-of-the-art gym, and relaxing pool facilities.">
+    <meta name="author" content="Your Name">
+    <title>Luxury Amenities | Dana Hotel & Resorts</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="Premium Amenities | Dana Hotel">
+    <meta property="og:description" content="Indulge in our luxury spa, fine dining, and premium facilities">
+    <meta property="og:type" content="website">
+    
+    <style>
+        /* Color Schema */
+        :root {
+            --primary-color: #1a3c6e;
+            --secondary-color: #c8a97e;
+            --background-color: #f8f9fa;
+            --text-color: #333333;
+            --light-text: #ffffff;
+            --border-color: #e0e0e0;
+            --spa-color: #8caa9d;
+            --restaurant-color: #c8a97e;
+            --pool-color: #6b9ac4;
+            --gym-color: #4a6572;
+        }
+
+        /* Typography */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hotel-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .contact-info {
+            font-size: 0.9rem;
+        }
+
+        .language-selector {
+            background: transparent;
+            color: var(--light-text);
+            border: 1px solid var(--secondary-color);
+            padding: 0.3rem;
+            border-radius: 4px;
+        }
+
+        nav {
+            background-color: rgba(0,0,0,0.9);
+            padding: 1rem 0;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--secondary-color);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light-text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section - Updated */
+        .hero {
+            position: relative;
+            height: 400px;
+            background: url('images/amenities.webp') center/cover;
+            color: var(--light-text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            color: var(--light-text);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Amenities Navigation */
+        .amenities-nav {
+            background: var(--light-text);
+            padding: 1rem 0;
+            position: sticky;
+            top: 136px;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .amenities-nav-list {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .amenities-nav-list a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .amenities-nav-list a:hover,
+        .amenities-nav-list a.active {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+        }
+
+        /* Amenity Sections */
+        .amenity-section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .amenity-section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+        }
+
+        .amenity-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .amenity-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .amenity-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .amenity-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-card {
+            background: var(--light-text);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .highlight-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Spa Specific Styles */
+        .spa-section .highlight-card {
+            border-top: 4px solid var(--spa-color);
+        }
+
+        .spa-section .amenity-info h2 {
+            color: var(--spa-color);
+        }
+
+        /* Restaurant Specific Styles */
+        .restaurant-section .highlight-card {
+            border-top: 4px solid var(--restaurant-color);
+        }
+
+        .restaurant-section .amenity-info h2 {
+            color: var(--restaurant-color);
+        }
+
+        /* Pool Specific Styles */
+        .pool-section .highlight-card {
+            border-top: 4px solid var(--pool-color);
+        }
+
+        .pool-section .amenity-info h2 {
+            color: var(--pool-color);
+        }
+
+        /* Gym Specific Styles */
+        .gym-section .highlight-card {
+            border-top: 4px solid var(--gym-color);
+        }
+
+        .gym-section .amenity-info h2 {
+            color: var(--gym-color);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-item {
+            background: var(--light-text);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .service-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-price {
+            font-weight: 600;
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+        }
+
+        /* Booking Forms */
+        .booking-form {
+            background: var(--light-text);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        .book-btn {
+            background-color: var(--secondary-color);
+            color: var(--light-text);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .book-btn:hover {
+            background-color: #b8976a;
+        }
+
+        /* Hours & Information */
+        .hours-info {
+            background: var(--light-text);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .hour-item {
+            padding: 1rem;
+            border-left: 3px solid var(--secondary-color);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: var(--light-text);
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 600px;
+            position: relative;
+            animation: modalAppear 0.3s ease;
+        }
+
+        @keyframes modalAppear {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-color);
+            background: none;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--light-text);
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: var(--light-text);
+            text-decoration: none;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                padding: 1rem 0;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .amenity-header {
+                grid-template-columns: 1fr;
+            }
+
+            .amenities-nav-list {
+                gap: 1rem;
+            }
+
+            .amenities-nav-list a {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hours-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading and Error States */
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .error-message {
+            background-color: #fee;
+            color: #c33;
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="hotel-name">Dana Hotel & Resorts</div>
+            <div class="contact-info">📞 +233 (55) 846-2774 | 📍 123 Pokuase-Amasaman</div>
+            <select class="language-selector" id="languageSelect">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+            </select>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <button class="hamburger" id="hamburger">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rooms.html">Rooms</a></li>
+                <li><a href="amenities.html" class="active">Amenities</a></li>
+                <!--
+                <li><a href="#restaurant">Restaurant & Bar</a></li>
+                <li><a href="#events">Events</a></li>
+                -->
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div>
+                <h1>Premium Amenities</h1>
+                <p>Indulge in luxury experiences designed for your complete relaxation and enjoyment</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities Navigation -->
+    <section class="amenities-nav">
+        <div class="container">
+            <ul class="amenities-nav-list">
+                <li><a href="#spa" class="active">Serenity Spa</a></li>
+                <li><a href="#restaurant">Aura Restaurant</a></li>
+                <li><a href="#pool">Infinity Pool</a></li>
+                <li><a href="#gym">Elite Fitness</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Spa Section -->
+        <section id="spa" class="amenity-section spa-section">
+            <div class="amenity-header">
+                <img src="images/spa-facility.jpg" alt="Luxury Spa Facility" class="amenity-image" loading="lazy">
+                <div class="amenity-info">
+                    <h2>Serenity Spa</h2>
+                    <p>Escape to a world of tranquility and rejuvenation at our award-winning spa. Our expert therapists use only the finest organic products to deliver unparalleled wellness experiences.</p>
+                    <div class="amenity-highlights">
+                        <div class="highlight-card">
+                            <div class="highlight-icon">🧖♀️</div>
+                            <h4>12 Treatment Rooms</h4>
+                            <p>Private suites for complete relaxation</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon">💆♂️</div>
+                            <h4>Expert Therapists</h4>
+                            <p>Internationally trained professionals</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon">🌿</div>
+                            <h4>Organic Products</h4>
+                            <p>Premium, natural ingredients</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="services-grid" id="spaServices">
+                <!-- Spa services will be loaded dynamically -->
+            </div>
+
+            <div class="booking-form">
+                <h3>Book Spa Experience</h3>
+                <form id="spaBookingForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="spaDate">Date</label>
+                            <input type="date" id="spaDate" name="spaDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="spaTime">Time</label>
+                            <select id="spaTime" name="spaTime" required>
+                                <option value="">Select Time</option>
+                                <!-- Times will be populated dynamically -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="spaService">Service</label>
+                            <select id="spaService" name="spaService" required>
+                                <option value="">Select Service</option>
+                                <!-- Services will be populated dynamically -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="spaGuests">Guests</label>
+                            <select id="spaGuests" name="spaGuests" required>
+                                <option value="1">1 Guest</option>
+                                <option value="2">2 Guests</option>
+                                <option value="3">3 Guests</option>
+                                <option value="4">4 Guests</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="book-btn">Reserve Spa Treatment</button>
+                </form>
+            </div>
+
+            <div class="hours-info">
+                <h3>Spa Hours & Information</h3>
+                <div class="hours-grid">
+                    <div class="hour-item">
+                        <strong>Monday - Friday</strong><br>
+                        9:00 AM - 9:00 PM
+                    </div>
+                    <div class="hour-item">
+                        <strong>Saturday - Sunday</strong><br>
+                        8:00 AM - 10:00 PM
+                    </div>
+                    <div class="hour-item">
+                        <strong>Reservations</strong><br>
+                        Recommended 48h in advance
+                    </div>
+                    <div class="hour-item">
+                        <strong>Contact</strong><br>
+                        Ext. 1234 | spa@danahotel.com
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Restaurant Section -->
+        <section id="restaurant" class="amenity-section restaurant-section">
+            <div class="amenity-header">
+                <div class="amenity-info">
+                    <h2>Aura Restaurant</h2>
+                    <p>Experience culinary excellence at our signature restaurant, where world-class chefs create unforgettable dining experiences using locally sourced, seasonal ingredients.</p>
+                    <div class="amenity-highlights">
+                        <div class="highlight-card">
+                            <div class="highlight-icon">👨🍳</div>
+                            <h4>Michelin Chef</h4>
+                            <p>Award-winning culinary team</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon">🍷</div>
+                            <h4>Wine Cellar</h4>
+                            <p>500+ international selections</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon">🌅</div>
+                            <h4>Rooftop Views</h4>
+                            <p>Panoramic city scenery</p>
+                        </div>
+                    </div>
+                </div>
+                <img src="images/restaurant-interior.jpg" alt="Fine Dining Restaurant" class="amenity-image" loading="lazy">
+            </div>
+
+            <div class="services-grid" id="menuItems">
+                <!-- Menu items will be loaded dynamically -->
+            </div>
+
+            <div class="booking-form">
+                <h3>Make Restaurant Reservation</h3>
+                <form id="restaurantBookingForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="restaurantDate">Date</label>
+                            <input type="date" id="restaurantDate" name="restaurantDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="restaurantTime">Time</label>
+                            <select id="restaurantTime" name="restaurantTime" required>
+                                <option value="">Select Time</option>
+                                <!-- Times will be populated dynamically -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="restaurantGuests">Guests</label>
+                            <select id="restaurantGuests" name="restaurantGuests" required>
+                                <option value="1">1 Guest</option>
+                                <option value="2">2 Guests</option>
+                                <option value="3">3 Guests</option>
+                                <option value="4">4 Guests</option>
+                                <option value="5">5 Guests</option>
+                                <option value="6">6 Guests</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="restaurantOccasion">Occasion</label>
+                            <select id="restaurantOccasion" name="restaurantOccasion">
+                                <option value="">Select Occasion</option>
+                                <option value="anniversary">Anniversary</option>
+                                <option value="birthday">Birthday</option>
+                                <option value="business">Business Dinner</option>
+                                <option value="celebration">Celebration</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="book-btn">Reserve Table</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Pool Section -->
+        <section id="pool" class="amenity-section pool-section">
+            <div class="amenity-header">
+                <img src="images/infinity-pool.jpg" alt="Infinity Pool" class="amenity-image" loading="lazy">
+                <div class="amenity-info">
+                    <h2>Infinity Pool</h2>
+                    <p>Relax and unwind at our stunning rooftop infinity pool, offering breathtaking views and premium cabana services for the ultimate poolside experience.</p>
+                    <div class="amenity-highlights">
+                        <div class="highlight-card">
+                            <div class="highlight-icon">🏊♀️</div>
+                            <h4>Heated Pool</h4>
+                            <p>Year-round comfortable swimming</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon">🏖️</div>
+                            <h4>Luxury Cabanas</h4>
+                            <p>Private shaded retreats</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon">🍹</div>
+                            <h4>Poolside Bar</h4>
+                            <p>Signature cocktails & snacks</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hours-info">
+                <h3>Pool Hours & Guidelines</h3>
+                <div class="hours-grid">
+                    <div class="hour-item">
+                        <strong>Daily Hours</strong><br>
+                        7:00 AM - 10:00 PM
+                    </div>
+                    <div class="hour-item">
+                        <strong>Adult-Only Hours</strong><br>
+                        7:00 PM - 10:00 PM
+                    </div>
+                    <div class="hour-item">
+                        <strong>Pool Temperature</strong><br>
+                        82°F (28°C) maintained
+                    </div>
+                    <div class="hour-item">
+                        <strong>Cabanas</strong><br>
+                        Reserve 24h in advance
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gym Section -->
+        <section id="gym" class="amenity-section gym-section">
+            <div class="amenity-header">
+                <div class="amenity-info">
+                    <h2>Elite Fitness Center</h2>
+                    <p>Stay active and energized in our state-of-the-art fitness facility, featuring premium equipment, personal training, and wellness classes.</p>
+                    <div class="amenity-highlights">
+                        <div class="highlight-card">
+                            <div class="highlight-icon">💪</div>
+                            <h4>Premium Equipment</h4>
+                            <p>Latest Technogym machines</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon">🧘♀️</div>
+                            <h4>Yoga Studio</h4>
+                            <p>Daily group classes</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon">👨💼</div>
+                            <h4>Personal Training</h4>
+                            <p>Certified professionals</p>
+                        </div>
+                    </div>
+                </div>
+                <img src="images/fitness-center.jpg" alt="Modern Gym Facility" class="amenity-image" loading="lazy">
+            </div>
+
+            <div class="services-grid" id="fitnessClasses">
+                <!-- Fitness classes will be loaded dynamically -->
+            </div>
+
+            <div class="hours-info">
+                <h3>Fitness Center Information</h3>
+                <div class="hours-grid">
+                    <div class="hour-item">
+                        <strong>Operating Hours</strong><br>
+                        24/7 Access for Guests
+                    </div>
+                    <div class="hour-item">
+                        <strong>Personal Training</strong><br>
+                        6:00 AM - 9:00 PM Daily
+                    </div>
+                    <div class="hour-item">
+                        <strong>Group Classes</strong><br>
+                        Schedule at Front Desk
+                    </div>
+                    <div class="hour-item">
+                        <strong>Equipment</strong><br>
+                        Towels & Water Provided
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Dana Hotel & Resorts</h3>
+                    <p>⭐️⭐️⭐️⭐️ 4-Star Luxury Accommodation</p>
+                    <p>123 Pokuase-Amasaman, Prestige District<br>Accra, Ghana</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="attributions.html">Attributions</a><br>
+                    <a href="#">Video Demonstration</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Dana Hotel & Resorts. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script type="module">
+        // Import modules
+        import { fetchAmenitiesData } from './js/modules/api.js';
+        import { saveBookingPreferences, getBookingPreferences } from './js/modules/storage.js';
+
+        // DOM Elements
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const amenitiesNavLinks = document.querySelectorAll('.amenities-nav-list a');
+        const errorMessage = document.getElementById('errorMessage');
+
+        // Navigation
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth scrolling for amenities navigation
+        amenitiesNavLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                // Update active state
+                amenitiesNavLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                
+                // Smooth scroll to section
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Load saved preferences
+        function loadSavedPreferences() {
+            const preferences = getBookingPreferences();
+            // Load any saved form data
+        }
+
+        // Display spa services dynamically
+        async function displaySpaServices() {
+            try {
+                const amenitiesData = await fetchAmenitiesData();
+                const spaServicesContainer = document.getElementById('spaServices');
+                const spaServiceSelect = document.getElementById('spaService');
+
+                if (amenitiesData.spaServices && amenitiesData.spaServices.length > 0) {
+                    const servicesHTML = amenitiesData.spaServices.map(service => `
+                        <div class="service-item">
+                            <h4>${service.name}</h4>
+                            <p>${service.description}</p>
+                            <div class="service-price">$${service.price} | ${service.duration} minutes</div>
+                        </div>
+                    `).join('');
+
+                    spaServicesContainer.innerHTML = servicesHTML;
+
+                    // Populate service select options
+                    const serviceOptions = amenitiesData.spaServices.map(service => 
+                        `<option value="${service.id}">${service.name} - $${service.price}</option>`
+                    ).join('');
+                    spaServiceSelect.innerHTML = '<option value="">Select Service</option>' + serviceOptions;
+                }
+            } catch (error) {
+                console.error('Error loading spa services:', error);
+            }
+        }
+
+        // Display menu items dynamically
+        async function displayMenuItems() {
+            try {
+                const amenitiesData = await fetchAmenitiesData();
+                const menuContainer = document.getElementById('menuItems');
+
+                if (amenitiesData.menuItems && amenitiesData.menuItems.length > 0) {
+                    const menuHTML = amenitiesData.menuItems.map(item => `
+                        <div class="service-item">
+                            <h4>${item.name}</h4>
+                            <p>${item.description}</p>
+                            <div class="service-price">$${item.price}</div>
+                            ${item.chefRecommendation ? '<small>👨🍳 Chef\'s Recommendation</small>' : ''}
+                        </div>
+                    `).join('');
+
+                    menuContainer.innerHTML = menuHTML;
+                }
+            } catch (error) {
+                console.error('Error loading menu items:', error);
+            }
+        }
+
+        // Display fitness classes dynamically
+        async function displayFitnessClasses() {
+            try {
+                const amenitiesData = await fetchAmenitiesData();
+                const classesContainer = document.getElementById('fitnessClasses');
+
+                if (amenitiesData.fitnessClasses && amenitiesData.fitnessClasses.length > 0) {
+                    const classesHTML = amenitiesData.fitnessClasses.map(fitnessClass => `
+                        <div class="service-item">
+                            <h4>${fitnessClass.name}</h4>
+                            <p>${fitnessClass.description}</p>
+                            <div class="service-price">${fitnessClass.included ? 'Included' : `$${fitnessClass.price}`}</div>
+                            <small>🕐 ${fitnessClass.schedule}</small>
+                        </div>
+                    `).join('');
+
+                    classesContainer.innerHTML = classesHTML;
+                }
+            } catch (error) {
+                console.error('Error loading fitness classes:', error);
+            }
+        }
+
+        // Form submissions
+        document.getElementById('spaBookingForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const searchParams = new URLSearchParams(formData);
+            window.location.href = `form-action.html?type=spa&${searchParams.toString()}`;
+        });
+
+        document.getElementById('restaurantBookingForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const searchParams = new URLSearchParams(formData);
+            window.location.href = `form-action.html?type=restaurant&${searchParams.toString()}`;
+        });
+
+        // Populate time options
+        function populateTimeOptions() {
+            const timeSelects = document.querySelectorAll('select[id$="Time"]');
+            const times = [
+                '08:00 AM', '08:30 AM', '09:00 AM', '09:30 AM', '10:00 AM', '10:30 AM',
+                '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM', '01:00 PM', '01:30 PM',
+                '02:00 PM', '02:30 PM', '03:00 PM', '03:30 PM', '04:00 PM', '04:30 PM',
+                '05:00 PM', '05:30 PM', '06:00 PM', '06:30 PM', '07:00 PM', '07:30 PM',
+                '08:00 PM', '08:30 PM', '09:00 PM'
+            ];
+
+            timeSelects.forEach(select => {
+                const options = times.map(time => `<option value="${time}">${time}</option>`).join('');
+                select.innerHTML = '<option value="">Select Time</option>' + options;
+            });
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            loadSavedPreferences();
+            displaySpaServices();
+            displayMenuItems();
+            displayFitnessClasses();
+            populateTimeOptions();
+            
+            // Set minimum dates to today
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('spaDate').min = today;
+            document.getElementById('restaurantDate').min = today;
+        });
+    </script>
+</body>
+</html>
