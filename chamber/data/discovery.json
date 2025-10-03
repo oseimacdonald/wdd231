@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Kwame Nkrumah Memorial Park",
+    "address": "High St, Accra, Ghana",
+    "description": "A memorial park dedicated to Ghana's first president, featuring his mausoleum and museum showcasing his life and achievements.",
+    "image": "nkrumah-park.webp"
+  },
+  {
+    "name": "Labadi Beach",
+    "address": "Labadi, Accra, Ghana",
+    "description": "One of Accra's most popular beaches with beautiful white sands, vibrant atmosphere, and local food vendors.",
+    "image": "labadi-beach.webp"
+  },
+  {
+    "name": "Jamestown Lighthouse",
+    "address": "Jamestown, Accra, Ghana",
+    "description": "Historic lighthouse offering panoramic views of Jamestown fishing harbor and the Atlantic Ocean.",
+    "image": "jamestown-lighthouse.webp"
+  },
+  {
+    "name": "National Museum of Ghana",
+    "address": "Barnes Rd, Accra, Ghana",
+    "description": "Ghana's largest museum showcasing the country's cultural heritage, archaeology, and art from prehistoric times to present.",
+    "image": "national-museum.webp"
+  },
+  {
+    "name": "Makola Market",
+    "address": "Kojo Thompson Rd, Accra, Ghana",
+    "description": "Vibrant open-air market offering everything from fresh produce to textiles, known for its bustling atmosphere.",
+    "image": "makola-market.webp"
+  },
+  {
+    "name": "Independence Square",
+    "address": "Independence Ave, Accra, Ghana",
+    "description": "Large public square built to commemorate Ghana's independence, featuring monuments and parade grounds.",
+    "image": "independence-square.webp"
+  },
+  {
+    "name": "Arts Centre",
+    "address": "28th February Rd, Accra, Ghana",
+    "description": "Cultural hub featuring traditional crafts, art galleries, and performance spaces showcasing Ghanaian arts and culture.",
+    "image": "arts-centre.webp"
+  },
+  {
+    "name": "Osu Castle",
+    "address": "Osu, Accra, Ghana",
+    "description": "Historic castle that served as government headquarters, with a rich history dating back to the 17th century.",
+    "image": "osu-castle.webp"
+  }
+]

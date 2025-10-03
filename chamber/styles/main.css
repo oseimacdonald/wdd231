@@ -1312,3 +1312,215 @@ header nav .navigation a {
     border-radius: 4px !important;
     white-space: nowrap !important;
 }
+
+/* Discover Page Styles */
+.visitor-message {
+  background-color: #e6f2ff;
+  border-left: 4px solid #20088b;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 4px;
+}
+
+.demographics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.demographic-item {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f7fafc;
+  border-radius: 8px;
+}
+
+.demographic-item h3 {
+  color: #20088b;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.demographic-item p {
+  font-weight: bold;
+  color: #1a202c;
+  margin: 0;
+}
+
+/* Gallery Grid for Small Screens */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.attraction-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.attraction-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.attraction-card figure {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.attraction-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.attraction-card:hover img {
+  transform: scale(1.05);
+}
+
+.attraction-card figcaption {
+  padding: 1rem;
+}
+
+.attraction-card h3 {
+  margin: 0 0 0.5rem 0;
+  color: #1a202c;
+}
+
+.attraction-card address {
+  font-style: normal;
+  color: #4a5568;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.attraction-card p {
+  color: #4a5568;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.learn-more-btn {
+  background-color: #20088b;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
+
+.learn-more-btn:hover {
+  background-color: #2c5282;
+}
+
+/* ==========================================================================
+   MOBILE NAVIGATION STYLES
+   ========================================================================== */
+
+/* Hamburger button - hidden by default, shown only on mobile */
+.hamburger {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.hamburger:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile navigation styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Show only on mobile */
+    }
+
+    /* Navigation container - hidden by default on mobile */
+    .navigation {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, #20088b 0%, #2c5282 100%);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    /* Show navigation when active */
+    .navigation.active {
+        display: block;
+    }
+
+    /* Mobile navigation list - vertical */
+    .navigation ul {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 1rem 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+
+    .navigation li {
+        display: block !important;
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .navigation a {
+        display: block !important;
+        padding: 1rem 1.5rem !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .navigation a:last-child {
+        border-bottom: none !important;
+    }
+
+    /* Desktop navigation overrides for mobile */
+    header nav .navigation ul {
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+    }
+
+    header nav .navigation li {
+        display: block !important;
+        width: 100% !important;
+    }
+
+    header nav .navigation a {
+        display: block !important;
+        width: 100% !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+    }
+}
+
+/* Desktop navigation - always visible */
+@media (min-width: 769px) {
+    .navigation {
+        display: block !important;
+    }
+    
+    .hamburger {
+        display: none !important;
+    }
+}

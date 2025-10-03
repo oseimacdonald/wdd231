@@ -1,4 +1,6 @@
+// join.js - Join page specific functionality only
 function initPageScripts() {
+    // Membership view toggle functionality
     const gridBtn = document.getElementById('gridBtn');
     const listBtn = document.getElementById('listBtn');
     const membershipContainer = document.getElementById('membershipContainer');
@@ -19,6 +21,7 @@ function initPageScripts() {
         });
     }
 
+    // Modal functionality for membership levels
     const learnMoreButtons = document.querySelectorAll('.learn-more');
     const modals = document.querySelectorAll('.modal');
     const closeButtons = document.querySelectorAll('.close-modal');
@@ -44,11 +47,13 @@ function initPageScripts() {
         });
     });
 
+    // Form timestamp
     const timestampField = document.getElementById('timestamp');
     if (timestampField) {
         timestampField.value = new Date().toISOString();
     }
 
+    // Form validation
     const form = document.getElementById('joinForm');
     if (form) {
         form.addEventListener('submit', function(e) {
@@ -71,6 +76,7 @@ function initPageScripts() {
         });
     }
 
+    // Real-time form field validation
     document.querySelectorAll('input[required]').forEach(input => {
         input.addEventListener('blur', function() {
             if (!this.value.trim()) {
@@ -81,41 +87,7 @@ function initPageScripts() {
         });
     });
 
-    const hamburger = document.querySelector('.hamburger');
-    const navigation = document.querySelector('.navigation');
-
-    if (hamburger && navigation) {
-        hamburger.addEventListener('click', function() {
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
-            this.setAttribute('aria-expanded', !isExpanded);
-            this.classList.toggle('active');
-            navigation.classList.toggle('active');
-        });
-    }
-
-    const navLinks = document.querySelectorAll('.navigation a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (window.innerWidth <= 768 && navigation && navigation.classList.contains('active')) {
-                navigation.classList.remove('active');
-                if (hamburger) {
-                    hamburger.classList.remove('active');
-                    hamburger.setAttribute('aria-expanded', 'false');
-                }
-            }
-        });
-    });
-
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 768 && navigation) {
-            navigation.classList.remove('active');
-            if (hamburger) {
-                hamburger.classList.remove('active');
-                hamburger.setAttribute('aria-expanded', 'false');
-            }
-        }
-    });
-
+    // Footer information
     const yearElement = document.getElementById('year');
     if (yearElement) {
         yearElement.textContent = new Date().getFullYear();
@@ -127,7 +99,7 @@ function initPageScripts() {
     }
 }
 
-// Just initialize your page scripts on DOM load, no WebSocket
+// Initialize join page scripts
 document.addEventListener('DOMContentLoaded', () => {
     initPageScripts();
 });

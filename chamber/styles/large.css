@@ -1,0 +1,20 @@
+/* Large Screen Styles (1025px and above) */
+@media (min-width: 1025px) {
+  .gallery-grid {
+    grid-template-areas:
+      "attraction1 attraction2 attraction3"
+      "attraction4 attraction5 attraction6"
+      "attraction7 attraction8 .";
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2.5rem;
+  }
+  
+  .attraction-card:nth-child(1) { grid-area: attraction1; }
+  .attraction-card:nth-child(2) { grid-area: attraction2; }
+  .attraction-card:nth-child(3) { grid-area: attraction3; }
+  .attraction-card:nth-child(4) { grid-area: attraction4; }
+  .attraction-card:nth-child(5) { grid-area: attraction5; }
+  .attraction-card:nth-child(6) { grid-area: attraction6; }
+  .attraction-card:nth-child(7) { grid-area: attraction7; }
+  .attraction-card:nth-child(8) { grid-area: attraction8; }
+}

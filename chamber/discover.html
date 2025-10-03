@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover the attractions and features of Accra, Ghana">
+  <meta name="author" content="Mac-Donald Osei Bonsu">
+  <title>Discover | Accra Chamber of Commerce</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico">
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Google Fonts API -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Open Graph Meta Tags for Facebook -->
+  <meta property="og:title" content="Discover | Accra Chamber of Commerce">
+  <meta property="og:description" content="Explore the attractions and features of Accra, Ghana">
+  <meta property="og:image" content="https://oseimacdonald.github.io/wdd231/images/accra-hero.jpg">
+  <meta property="og:url" content="https://oseimacdonald.github.io/wdd231/chamber/discover.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Accra Chamber of Commerce">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Discover | Accra Chamber of Commerce">
+  <meta name="twitter:description" content="Explore the attractions and features of Accra, Ghana">
+  <meta name="twitter:image" content="https://oseimacdonald.github.io/wdd231/images/accra-hero.jpg">
+  <meta name="twitter:creator" content="@oseimacdonald">
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="styles/normalize.css">  
+
+  <!-- Fontawesome CSS -->
+  <link rel="preload" href="styles/fontawesome.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="styles/fontawesome.css"></noscript>
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/medium.css" media="(min-width: 641px)">
+  <link rel="stylesheet" href="styles/large.css" media="(min-width: 1025px)">
+  <link rel="stylesheet" href="styles/normalize.css" /> 
+
+  <!-- JavaScript -->
+  <script src="scripts/footer.js" defer></script>
+  <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/discover.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo-title">
+      <img src="images/favicon-32x32.png" alt="Accra Chamber Logo">
+      <span class="site-name">Accra Chamber of Commerce</span>
+    </div>
+    <button class="hamburger" aria-controls="primary-navigation" aria-expanded="true">☰</button>
+    <nav>
+      <ul class="navigation" id="primary-navigation">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="discover.html">Discover</a></li> 
+        <li><a href="directory.html">Directory</a></li> 
+        <li><a href="join.html">Join</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="podcast.html">Podcast</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Page Title -->
+    <h1>Discover Accra</h1>
+    
+    <!-- Visitor Message -->
+    <div id="visitor-message" class="visitor-message"></div>
+    
+    <!-- Demographics Section -->
+    <section class="demographics card">
+      <h2>Accra Demographics</h2>
+      <div class="demographics-grid">
+        <div class="demographic-item">
+          <h3>Population</h3>
+          <p>2.5+ Million</p>
+        </div>
+        <div class="demographic-item">
+          <h3>Area</h3>
+          <p>225.67 km²</p>
+        </div>
+        <div class="demographic-item">
+          <h3>Official Language</h3>
+          <p>English</p>
+        </div>
+        <div class="demographic-item">
+          <h3>Local Languages</h3>
+          <p>Ga, Twi, Ewe</p>
+        </div>
+        <div class="demographic-item">
+          <h3>Time Zone</h3>
+          <p>GMT (UTC+0)</p>
+        </div>
+        <div class="demographic-item">
+          <h3>Currency</h3>
+          <p>Ghana Cedi (GHS)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Attractions Gallery -->
+    <section class="attractions">
+      <h2>Top Attractions in Accra</h2>
+      <div class="gallery-grid" id="attractionsContainer">
+        <!-- Attraction cards will be loaded via JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <!-- Left Section -->
+      <div class="footer-section footer-address">
+        <h3>Accra Chamber of Commerce</h3>
+        <p>123 Business District</p>
+        <p>Accra, Ghana</p>
+        <p>info@accrachamber.com</p>
+        <p>+233 24 123 4567</p>
+      </div>
+      
+      <!-- Center: Social Links -->
+      <div class="footer-section footer-social">
+        <h3>Connect With Us</h3>
+        <div class="social-links">
+          <a href="#" target="_blank" title="YouTube">
+            <i class="fab fa-youtube"></i>
+            <span class="sr-only">YouTube</span>
+          </a>
+          <a href="#" target="_blank" title="Twitter">
+            <i class="fab fa-twitter"></i>
+            <span class="sr-only">Twitter</span>
+          </a>
+          <a href="https://linkedin.com/in/oseimacdonald" target="_blank" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+            <span class="sr-only">LinkedIn</span>
+          </a>
+          <a href="https://github.com/oseimacdonald" target="_blank" title="GitHub">
+            <i class="fab fa-github"></i>
+            <span class="sr-only">GitHub</span>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Right: Project Info -->
+      <div class="footer-section footer-info">
+        <p>wdd231 project by Mac-Donald Osei Bonsu</p>
+        <p>&copy; <span id="year"></span> Accra Chamber of Commerce</p>
+        <p>Last Modified: <span id="lastModified"></span></p>
+        <p>WDD 231 - Web Frontend Development</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
