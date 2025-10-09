@@ -1,27 +1,214 @@
 {
-    "rooms": [
-        {
-            "id": 1,
-            "name": "Comfort Room",
-            "type": "standard",
-            "price": 199,
-            "capacity": 2,
-            "amenities": ["WiFi", "TV", "Mini Bar"],
-            "available": true,
-            "image": "images/comfort-room.jpg",
-            "description": "Cozy and comfortable standard room"
-        },
-        {
-            "id": 2,
-            "name": "Superior Room",
-            "type": "premium",
-            "price": 299,
-            "capacity": 3,
-            "amenities": ["WiFi", "TV", "Mini Bar", "Ocean View"],
-            "available": true,
-            "image": "images/superior-room.jpg",
-            "description": "Spacious room with premium amenities"
-        }
-         
-    ]
+  "rooms": [
+    {
+      "id": 1,
+      "name": "Comfort Room",
+      "type": "standard",
+      "price": 199,
+      "capacity": 2,
+      "amenities": ["WiFi", "TV", "Mini Bar"],
+      "available": true,
+      "image": "images/comfortroom.webp",
+      "description": "Cozy and comfortable standard room",
+      "bedType": "Queen Bed",
+      "size": "300 sq ft",
+      "view": "City View"
+    },
+    {
+      "id": 2,
+      "name": "Superior Room",
+      "type": "premium",
+      "price": 299,
+      "capacity": 3,
+      "amenities": ["WiFi", "TV", "Mini Bar", "Ocean View"],
+      "available": true,
+      "image": "images/superiorroom.webp",
+      "description": "Spacious room with premium amenities",
+      "bedType": "King Bed",
+      "size": "450 sq ft",
+      "view": "Ocean View"
+    },
+    {
+      "id": 3,
+      "name": "Deluxe King Room",
+      "type": "premium",
+      "price": 399,
+      "capacity": 2,
+      "amenities": ["Free WiFi", "Smart TV", "Mini Bar", "Work Desk", "Air Conditioning"],
+      "available": true,
+      "image": "images/deluxekingroom.webp",
+      "description": "Spacious room with king-sized bed and premium amenities",
+      "bedType": "King Bed",
+      "size": "500 sq ft",
+      "view": "City View"
+    },
+    {
+      "id": 4,
+      "name": "Executive Suite",
+      "type": "suite",
+      "price": 599,
+      "capacity": 4,
+      "amenities": ["Separate Living Room", "Two TVs", "Premium Mini Bar", "Executive Workstation"],
+      "available": true,
+      "image": "images/executivesuite.webp",
+      "description": "Luxurious suite with separate living area and premium amenities",
+      "bedType": "King Bed + Sofa Bed",
+      "size": "800 sq ft",
+      "view": "Ocean View"
+    },
+    {
+      "id": 5,
+      "name": "Presidential Suite",
+      "type": "suite",
+      "price": 999,
+      "capacity": 4,
+      "amenities": ["Private Balcony", "Dining Area", "Three TVs", "Butler Service"],
+      "available": true,
+      "image": "images/presidentialsuite.webp",
+      "description": "Ultimate luxury with panoramic views and exclusive services",
+      "bedType": "King Bed + Queen Bed",
+      "size": "1200 sq ft",
+      "view": "Panoramic City & Ocean View"
+    },
+    {
+      "id": 6,
+      "name": "Family Suite",
+      "type": "suite",
+      "price": 449,
+      "capacity": 6,
+      "amenities": ["Connecting Rooms", "Kids Amenities", "Game Console", "Family-sized Bathroom"],
+      "available": true,
+      "image": "images/familysuite.webp",
+      "description": "Perfect for families with connecting rooms and kid-friendly amenities",
+      "bedType": "King Bed + Twin Beds",
+      "size": "900 sq ft",
+      "view": "Garden View"
+    },
+    {
+      "id": 7,
+      "name": "Honeymoon Suite",
+      "type": "suite",
+      "price": 749,
+      "capacity": 2,
+      "amenities": ["Private Jacuzzi", "Champagne Service", "Romantic Decor", "Balcony"],
+      "available": true,
+      "image": "images/hotelbed1.webp",
+      "description": "Romantic suite perfect for special occasions and honeymoons",
+      "bedType": "King Bed",
+      "size": "700 sq ft",
+      "view": "Ocean View"
+    },
+    {
+      "id": 8,
+      "name": "Business Room",
+      "type": "premium",
+      "price": 349,
+      "capacity": 2,
+      "amenities": ["Ergonomic Workstation", "High-speed Internet", "Printer Access", "Meeting Space"],
+      "available": true,
+      "image": "images/hotelbed.webp",
+      "description": "Designed for business travelers with enhanced work amenities",
+      "bedType": "King Bed",
+      "size": "400 sq ft",
+      "view": "City View"
+    }
+  ],
+  "amenities": [
+    {
+      "id": 9,
+      "name": "Infinity Pool",
+      "type": "recreation",
+      "price": 0,
+      "capacity": 50,
+      "amenities": ["Heated Pool", "Luxury Cabanas", "Poolside Bar", "Sun Loungers"],
+      "available": true,
+      "image": "images/pool.webp",
+      "description": "Stunning rooftop infinity pool with panoramic city views",
+      "hours": "7:00 AM - 10:00 PM"
+    },
+    {
+      "id": 10,
+      "name": "Serenity Spa",
+      "type": "wellness",
+      "price": 0,
+      "capacity": 20,
+      "amenities": ["Treatment Rooms", "Expert Therapists", "Organic Products", "Steam Room"],
+      "available": true,
+      "image": "images/spatreatmentroom.webp",
+      "description": "Award-winning spa offering rejuvenating treatments and therapies",
+      "hours": "9:00 AM - 9:00 PM"
+    },
+    {
+      "id": 11,
+      "name": "Elite Fitness Center",
+      "type": "wellness",
+      "price": 0,
+      "capacity": 30,
+      "amenities": ["Premium Equipment", "Yoga Studio", "Personal Training", "Cardio Theater"],
+      "available": true,
+      "image": "images/fitnesscenter.webp",
+      "description": "State-of-the-art fitness facility with premium equipment",
+      "hours": "24/7"
+    },
+    {
+      "id": 12,
+      "name": "Aura Restaurant",
+      "type": "dining",
+      "price": 0,
+      "capacity": 100,
+      "amenities": ["Michelin Chef", "Wine Cellar", "Rooftop Views", "Seasonal Menu"],
+      "available": true,
+      "image": "images/restaurant.jpeg",
+      "description": "Fine dining experience with world-class chefs",
+      "hours": "6:00 AM - 11:00 PM"
+    },
+    {
+      "id": 13,
+      "name": "Business Center",
+      "type": "business",
+      "price": 0,
+      "capacity": 15,
+      "amenities": ["Computers", "Printers", "Scanners", "High-speed Internet"],
+      "available": true,
+      "image": "images/businesscenter.webp",
+      "description": "Fully equipped business center for professional needs",
+      "hours": "24/7"
+    },
+    {
+      "id": 14,
+      "name": "Conference Facilities",
+      "type": "business",
+      "price": 500,
+      "capacity": 200,
+      "amenities": ["AV Equipment", "Catering Services", "Event Planning", "High-speed WiFi"],
+      "available": true,
+      "image": "images/conference.webp",
+      "description": "Professional meeting and event spaces",
+      "hours": "7:00 AM - 10:00 PM"
+    },
+    {
+      "id": 15,
+      "name": "Rooftop Bar",
+      "type": "dining",
+      "price": 0,
+      "capacity": 80,
+      "amenities": ["Signature Cocktails", "Live Music", "Fire Pits", "Panoramic Views"],
+      "available": true,
+      "image": "images/rooftopbar.webp",
+      "description": "Sophisticated rooftop bar with signature cocktails",
+      "hours": "4:00 PM - 1:00 AM"
+    },
+    {
+      "id": 16,
+      "name": "24/7 Room Service",
+      "type": "dining",
+      "price": 0,
+      "capacity": 0,
+      "amenities": ["24/7 Availability", "Extensive Menu", "Quick Delivery", "Special Diets"],
+      "available": true,
+      "image": "images/roomservice.webp",
+      "description": "Round-the-clock room service with extensive menu",
+      "hours": "24/7"
+    }
+  ]
 }

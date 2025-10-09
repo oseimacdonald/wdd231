@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resource attributions for Dana Hotel & Resorts website">
+    <meta name="author" content="Your Name">
+    <title>Resource Attributions | Dana Hotel & Resorts</title>
+    
+    <!-- Use the same stylesheet as other pages -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Additional styles specific to attributions page */
+        .attributions-main {
+            padding: 4rem 0;
+            background-color: var(--background-color);
+            min-height: 70vh;
+        }
+        
+        .attributions-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .attributions-header h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .attributions-header p {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .attribution-section {
+            margin-bottom: 3rem;
+            background: var(--light-text);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .attribution-section h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .attribution-item {
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .resource-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .resource-source {
+            color: var(--text-color);
+            margin-bottom: 0.3rem;
+            font-style: italic;
+        }
+        
+        .resource-link a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+            word-break: break-all;
+        }
+        
+        .resource-link a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+        
+        .resource-license {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .back-to-home {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 0.75rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .back-link:hover {
+            background-color: #152a4d;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .attributions-main {
+                padding: 2rem 0;
+            }
+            
+            .attribution-section {
+                padding: 1.5rem;
+            }
+            
+            .attribution-item {
+                padding: 1rem;
+            }
+            
+            .attributions-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="hotel-name">Dana Hotel & Resorts</div>
+            <div class="contact-info">📞 +233 (55) 846-2774 | 📍 123 Pokuase Amasaman</div>
+            <select class="language-selector" id="languageSelect">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+            </select>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <button class="hamburger" id="hamburger">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rooms.html">Rooms</a></li>
+                <li><a href="amenities.html">Amenities</a></li>
+                <li><a href="attributions.html" class="active">Attributions</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="attributions-main">
+        <div class="container">
+            <div class="attributions-header">
+                <h1>Resource Attributions</h1>
+                <p>Dana Hotel & Resorts acknowledges the following resources used in this educational website project</p>
+            </div>
+
+            <section class="attribution-section">
+                <h2>Images</h2>
+                
+                <div class="attribution-item">
+                    <div class="resource-title">Hotel Room Images (Comfort Room, Superior Room, Deluxe King Room)</div>
+                    <div class="resource-source">Source: Unsplash</div>
+                    <div class="resource-link">
+                        <a href="https://unsplash.com" target="_blank" rel="noopener">https://unsplash.com</a>
+                    </div>
+                    <div class="resource-license">License: Unsplash License (Free to use)</div>
+                </div>
+                
+                <div class="attribution-item">
+                    <div class="resource-title">Executive Suite, Presidential Suite, Family Suite Images</div>
+                    <div class="resource-source">Source: Pexels</div>
+                    <div class="resource-link">
+                        <a href="https://www.pexels.com" target="_blank" rel="noopener">https://www.pexels.com</a>
+                    </div>
+                    <div class="resource-license">License: Pexels License (Free to use)</div>
+                </div>
+                
+                <div class="attribution-item">
+                    <div class="resource-title">Amenity Images (Spa, Pool, Gym, Restaurant, Business Center)</div>
+                    <div class="resource-source">Source: Various free stock photo sites</div>
+                    <div class="resource-link">
+                        <a href="https://www.pexels.com" target="_blank" rel="noopener">https://www.pexels.com</a> | 
+                        <a href="https://pixabay.com" target="_blank" rel="noopener">https://pixabay.com</a>
+                    </div>
+                    <div class="resource-license">License: Free for commercial use with attribution</div>
+                </div>
+                
+                <div class="attribution-item">
+                    <div class="resource-title">Hero Section Hotel Images</div>
+                    <div class="resource-source">Source: Freepik (Educational License)</div>
+                    <div class="resource-link">
+                        <a href="https://www.freepik.com" target="_blank" rel="noopener">https://www.freepik.com</a>
+                    </div>
+                    <div class="resource-license">License: Freepik Educational License</div>
+                </div>
+            </section>
+
+            <section class="attribution-section">
+                <h2>Icons & UI Elements</h2>
+                
+                <div class="attribution-item">
+                    <div class="resource-title">UI Icons (Phone, Location, etc.)</div>
+                    <div class="resource-source">Source: Unicode Emoji</div>
+                    <div class="resource-link">
+                        <a href="https://unicode.org/emoji/charts/full-emoji-list.html" target="_blank" rel="noopener">https://unicode.org/emoji/charts</a>
+                    </div>
+                    <div class="resource-license">License: Unicode License</div>
+                </div>
+                
+                <div class="attribution-item">
+                    <div class="resource-title">Hamburger Menu Icon</div>
+                    <div class="resource-source">Source: Unicode Character</div>
+                    <div class="resource-license">License: Free to use</div>
+                </div>
+            </section>
+
+            <section class="attribution-section">
+                <h2>Fonts</h2>
+                
+                <div class="attribution-item">
+                    <div class="resource-title">Montserrat Font Family</div>
+                    <div class="resource-source">Source: Google Fonts</div>
+                    <div class="resource-link">
+                        <a href="https://fonts.google.com/specimen/Montserrat" target="_blank" rel="noopener">https://fonts.google.com/specimen/Montserrat</a>
+                    </div>
+                    <div class="resource-license">License: Open Font License</div>
+                </div>
+                
+                <div class="attribution-item">
+                    <div class="resource-title">Playfair Display Font</div>
+                    <div class="resource-source">Source: Google Fonts</div>
+                    <div class="resource-link">
+                        <a href="https://fonts.google.com/specimen/Playfair+Display" target="_blank" rel="noopener">https://fonts.google.com/specimen/Playfair+Display</a>
+                    </div>
+                    <div class="resource-license">License: Open Font License</div>
+                </div>
+            </section>
+
+            <section class="attribution-section">
+                <h2>Code & Technical References</h2>
+                
+                <div class="attribution-item">
+                    <div class="resource-title">JavaScript ES6 Modules Implementation</div>
+                    <div class="resource-source">Source: MDN Web Docs</div>
+                    <div class="resource-link">
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules</a>
+                    </div>
+                    <div class="resource-license">License: CC-BY-SA 2.5</div>
+                </div>
+                
+                <div class="attribution-item">
+                    <div class="resource-title">CSS Grid Layout System</div>
+                    <div class="resource-source">Source: CSS-Tricks & MDN Web Docs</div>
+                    <div class="resource-link">
+                        <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="noopener">https://css-tricks.com/snippets/css/complete-guide-grid/</a>
+                    </div>
+                    <div class="resource-license">License: MIT License / CC-BY-SA 2.5</div>
+                </div>
+                
+                <div class="attribution-item">
+                    <div class="resource-title">Fetch API Implementation Patterns</div>
+                    <div class="resource-source">Source: MDN Web Docs</div>
+                    <div class="resource-link">
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API</a>
+                    </div>
+                    <div class="resource-license">License: CC-BY-SA 2.5</div>
+                </div>
+                
+                <div class="attribution-item">
+                    <div class="resource-title">Local Storage Implementation</div>
+                    <div class="resource-source">Source: MDN Web Docs</div>
+                    <div class="resource-link">
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage</a>
+                    </div>
+                    <div class="resource-license">License: CC-BY-SA 2.5</div>
+                </div>
+            </section>
+
+            <section class="attribution-section">
+                <h2>Content & Inspiration</h2>
+                
+                <div class="attribution-item">
+                    <div class="resource-title">Hotel Description & Room Details Content</div>
+                    <div class="resource-source">Source: Original Content</div>
+                    <div class="resource-license">License: All descriptive text content is original creation for this educational project</div>
+                </div>
+                
+                <div class="attribution-item">
+                    <div class="resource-title">Inspirational Quote on Homepage</div>
+                    <div class="resource-source">Source: Dieter F. Uchtdorf, "Happiness, Your Heritage"</div>
+                    <div class="resource-license">License: Used with attribution for educational purposes</div>
+                </div>
+                
+                <div class="attribution-item">
+                    <div class="resource-title">Hotel Business Concept & Structure</div>
+                    <div class="resource-source">Source: Original Concept</div>
+                    <div class="resource-license">License: Original educational project concept</div>
+                </div>
+            </section>
+
+            <div class="back-to-home">
+                <a href="index.html" class="back-link">← Back to Home Page</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Dana Hotel & Resorts</h3>
+                    <p>⭐️⭐️⭐️⭐️ 4-Star Luxury Accommodation</p>
+                    <p>123 Luxury Avenue, Prestige District<br>Accra, Ghana</p>
+                    <p>📞 +233 (55) 846-2774<br>✉️ info@danahotel.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">Twitter</a>
+                        <a href="#">LinkedIn</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="attributions.html">Attributions</a><br>
+                    <a href="rooms.html">Room Booking</a><br>
+                    <a href="amenities.html">Amenities</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Dana Hotel & Resorts. All rights reserved.</p>
+                <p><small>This website was created for educational purposes as part of a web development course.</small></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script type="module">
+        // Import navigation functionality
+        import { initializeNavigation } from './js/main.js';
+
+        // Initialize navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('navMenu');
+
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,853 @@
+/* ===== VARIABLES & RESET ===== */
+:root {
+    --primary-color: #1a3c6e;
+    --secondary-color: #c8a97e;
+    --background-color: #f8f9fa;
+    --text-color: #333333;
+    --light-text: #ffffff;
+    --border-color: #e0e0e0;
+    --spa-color: #8caa9d;
+    --restaurant-color: #c8a97e;
+    --pool-color: #6b9ac4;
+    --gym-color: #4a6572;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* ===== TYPOGRAPHY ===== */
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-color);
+}
+
+/* ===== LAYOUT & CONTAINERS ===== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===== HEADER & NAVIGATION ===== */
+header {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hotel-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.contact-info {
+    font-size: 0.9rem;
+}
+
+.language-selector {
+    background: transparent;
+    color: var(--light-text);
+    border: 1px solid var(--secondary-color);
+    padding: 0.3rem;
+    border-radius: 4px;
+}
+
+nav {
+    background-color: rgba(0,0,0,0.9);
+    padding: 1rem 0;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    color: var(--light-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: var(--secondary-color);
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--light-text);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* ===== HERO SECTIONS ===== */
+.hero {
+    position: relative;
+    height: 80vh;
+    min-height: 600px;
+    background: url('../images/hotelbed.webp') center/cover;
+    color: var(--light-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 60px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    margin-top: 40px;
+}
+
+.hero-content h1 {
+    color: var(--light-text);
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Rooms page hero */
+.hero.rooms-hero {
+    height: 400px;
+    background: url('../images/hotelbed1.jpg') center/cover;
+}
+
+.hero.amenities-hero {
+    height: 400px;
+    background: url('../images/amenities.webp') center/cover;
+}
+
+.hero.rooms-hero h1,
+.hero.amenities-hero h1 {
+    font-size: 3rem;
+}
+
+/* ===== BOOKING FORMS ===== */
+.booking-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(121, 115, 115, 0);
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(70, 56, 56, 0.3);
+    z-index: 4;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.booking-overlay.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0.8;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.booking-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.booking-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-button.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--secondary-color);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.booking-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    align-items: end;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select {
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.book-btn {
+    background-color: var(--secondary-color);
+    color: var(--light-text);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1.1rem;
+}
+
+.book-btn:hover {
+    background-color: #b8976a;
+}
+
+/* Sticky booking bar for rooms page */
+.booking-sticky {
+    background-color: var(--light-text);
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+/* ===== ROOM SECTIONS ===== */
+.featured-rooms,
+.rooms-section {
+    padding: 6rem 0 4rem;
+    background: var(--light-text);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.room-card {
+    background: var(--light-text);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.room-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.room-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.room-content {
+    padding: 1.5rem;
+}
+
+.room-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.room-price {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.room-features {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.room-features li {
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+
+.room-features li:last-child {
+    border-bottom: none;
+}
+
+.view-more-btn,
+.view-details-btn {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.view-more-btn:hover,
+.view-details-btn:hover {
+    background-color: #152a4d;
+}
+
+/* ===== AMENITY SECTIONS ===== */
+.amenities-preview {
+    padding: 4rem 0;
+    background: var(--background-color);
+}
+
+.amenities-nav {
+    background: var(--light-text);
+    padding: 1rem 0;
+    position: sticky;
+    top: 136px;
+    z-index: 999;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.amenities-nav-list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.amenities-nav-list a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: all 0.3s;
+}
+
+.amenities-nav-list a:hover,
+.amenities-nav-list a.active {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+}
+
+.amenity-section {
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.amenity-section:last-child {
+    border-bottom: none;
+}
+
+.amenity-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.amenity-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.amenity-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.amenity-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.highlight-card {
+    background: var(--light-text);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.highlight-card:hover {
+    transform: translateY(-5px);
+}
+
+.highlight-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.amenity-card {
+    background: var(--light-text);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.amenity-card:hover {
+    transform: translateY(-5px);
+}
+
+.amenity-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.amenity-card h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.amenity-card p {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.learn-more-btn {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.learn-more-btn:hover {
+    background: var(--primary-color);
+    color: var(--light-text);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.service-item {
+    background: var(--light-text);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.service-item h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.service-price {
+    font-weight: 600;
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+}
+
+/* Amenity-specific colors */
+.spa-section .highlight-card,
+.spa-section .amenity-info h2 {
+    border-top: 4px solid var(--spa-color);
+    color: var(--spa-color);
+}
+
+.restaurant-section .highlight-card,
+.restaurant-section .amenity-info h2 {
+    border-top: 4px solid var(--restaurant-color);
+    color: var(--restaurant-color);
+}
+
+.pool-section .highlight-card,
+.pool-section .amenity-info h2 {
+    border-top: 4px solid var(--pool-color);
+    color: var(--pool-color);
+}
+
+.gym-section .highlight-card,
+.gym-section .amenity-info h2 {
+    border-top: 4px solid var(--gym-color);
+    color: var(--gym-color);
+}
+
+/* Hours & Information */
+.hours-info {
+    background: var(--light-text);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-top: 2rem;
+}
+
+.hours-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.hour-item {
+    padding: 1rem;
+    border-left: 3px solid var(--secondary-color);
+}
+
+/* ===== MODAL STYLES ===== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 2000;
+    overflow-y: auto;
+}
+
+.modal-content {
+    background-color: var(--light-text);
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 800px;
+    position: relative;
+    animation: modalAppear 0.3s ease;
+}
+
+@keyframes modalAppear {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--text-color);
+    background: none;
+    border: none;
+}
+
+.close-modal:hover {
+    color: var(--primary-color);
+}
+
+.modal-room-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.modal-room-image {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    color: var(--light-text);
+    margin-bottom: 1rem;
+}
+
+.footer-section p {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    display: block;
+    color: var(--light-text);
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: var(--secondary-color);
+}
+
+.footer-section a:last-child {
+    margin-bottom: 0;
+}
+
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: var(--light-text);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--secondary-color);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ===== UTILITY CLASSES ===== */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.error-message {
+    background-color: #fee;
+    color: #c33;
+    padding: 1rem;
+    border-radius: 4px;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        padding: 1rem 0;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero.rooms-hero h1,
+    .hero.amenities-hero h1 {
+        font-size: 2rem;
+    }
+
+    .booking-overlay {
+        position: relative;
+        bottom: auto;
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    .booking-overlay.sticky {
+        position: relative;
+        width: 100%;
+    }
+
+    .booking-form,
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .rooms-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .amenities-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tab-button {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .amenity-header {
+        grid-template-columns: 1fr;
+    }
+
+    .amenities-nav-list {
+        gap: 1rem;
+    }
+
+    .amenities-nav-list a {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .hours-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-room-details {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        margin: 1rem;
+        padding: 1rem;
+    }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+.amenity-preview-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.amenity-loading {
+    text-align: center;
+    padding: 2rem;
+    grid-column: 1 / -1;
+}

@@ -3,285 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Website plan for Dana Hotel & Resorts - Luxury 4-star hotel in Accra, Ghana">
+    <meta name="description" content="Luxury 4-star Dana Hotel - Premium accommodations, fine dining, and exceptional amenities in the heart of Accra city">
     <meta name="author" content="Your Name">
-    <title>Website Plan - Dana Hotel & Resorts</title>
-    <style>
-        /* Color Schema */
-        :root {
-            --primary-color: #1a3c6e;
-            --secondary-color: #402a0b;
-            --background-color: #f8f9fa;
-            --text-color: #333333;
-            --light-text: #ffffff;
-            --border-color: #e0e0e0;
-        }
+    <title>Dana Hotel & Resorts | Luxury Accommodations</title>
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="Dana Hotel & Resorts">
+    <meta property="og:description" content="Experience luxury at Dana Hotel">
+    <meta property="og:type" content="website">
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-        /* Typography */
-        body {
-            font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-color);
-            margin: 0;
-            padding: 0;
-        }
+    <link rel="stylesheet" href="css/styles.css">
 
-        h1 {
-            font-family: 'Playfair Display', serif;
-            color: var(--light-text);
-        }
-
-        h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary-color);
-        }
-
-        /* Layout */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background-color: var(--primary-color);
-            color: var(--light-text);
-            padding: 1rem 0;
-            text-align: center;
-        }
-
-        nav {
-            background-color: var(--secondary-color);
-            padding: 1rem 0;
-        }
-
-        .nav-menu {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            gap: 2rem;
-        }
-
-        .nav-menu a {
-            color: var(--light-text);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        section {
-            padding: 2rem 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .color-swatch {
-            display: inline-block;
-            width: 100px;
-            height: 100px;
-            margin: 0.5rem;
-            border-radius: 4px;
-            text-align: center;
-            line-height: 100px;
-            color: white;
-            font-weight: bold;
-        }
-
-        .wireframe {
-            background-color: #f0f0f0;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 4px;
-            text-align: center;
-        }
-
-        .wireframe-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .wireframe-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        footer {
-            background-color: var(--primary-color);
-            color: var(--light-text);
-            padding: 2rem 0;
-            text-align: center;
-        }
-    </style>
+    <!-- JavaScript -->
+    <script type="module" src="js/main.js"></script>
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <div class="container">
-            <h1>Website Plan: Dana Hotel & Resorts</h1>
-            <p>Luxury 4-star accommodations in the heart of Accra, Ghana</p>
+        <div class="container header-content">
+            <div class="hotel-name">Dana Hotel & Resorts</div>
+            <div class="contact-info">📞 +233 (55) 846-2774 | 📍 123 Pokuase Amasaman</div>
+            <select class="language-selector" id="languageSelect">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+            </select>
         </div>
     </header>
 
+    <!-- Navigation -->
     <nav>
         <div class="container">
-            <ul class="nav-menu">
-                <li><a href="#site-name">Site Name</a></li>
-                <li><a href="#site-purpose">Site Purpose</a></li>
-                <li><a href="#scenarios">Scenarios</a></li>
-                <li><a href="#color-schema">Color Schema</a></li>
-                <li><a href="#typography">Typography</a></li>
-                <li><a href="#wireframe">Wireframe</a></li>
+            <button class="hamburger" id="hamburger">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="rooms.html">Rooms</a></li>
+                <li><a href="amenities.html">Amenities</a></li>
             </ul>
         </div>
     </nav>
 
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Hero Content -->
+        <div class="container hero-content">
+            <div>
+                <h1>Experience Unparalleled Luxury</h1>
+                <p>Welcome to Dana Hotel & Resorts, where exceptional service meets breathtaking elegance</p>
+            </div>
+        </div>
+
+        <!-- Booking Container Overlay - Full width of hero -->
+        <div class="booking-overlay" id="bookingOverlay">
+            <div class="booking-container">
+                <div class="booking-tabs">
+                    <button class="tab-button active" data-tab="rooms">Rooms</button>
+                    <button class="tab-button" data-tab="restaurant">Restaurant</button>
+                    <button class="tab-button" data-tab="events">Events</button>
+                </div>
+
+                <!-- Rooms Booking Form -->
+                <div class="tab-content active" id="rooms-tab">
+                    <form class="booking-form" id="roomBookingForm" action="form-action.html" method="get">
+                        <input type="hidden" name="bookingType" value="room">
+                        <div class="form-group">
+                            <label for="arrival">Arrival Date</label>
+                            <input type="date" id="arrival" name="arrival" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="departure">Departure Date</label>
+                            <input type="date" id="departure" name="departure" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="adults">Adults</label>
+                            <select id="adults" name="adults" required>
+                                <option value="1">1 Adult</option>
+                                <option value="2" selected>2 Adults</option>
+                                <option value="3">3 Adults</option>
+                                <option value="4">4 Adults</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="children">Children</label>
+                            <select id="children" name="children">
+                                <option value="0">0 Children</option>
+                                <option value="1">1 Child</option>
+                                <option value="2">2 Children</option>
+                                <option value="3">3 Children</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="pets">Pets</label>
+                            <select id="pets" name="pets">
+                                <option value="0">No Pets</option>
+                                <option value="1">1 Pet (On Request)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="book-btn">Check Availability</button>
+                    </form>
+                </div>
+
+                <!-- Restaurant Booking Form -->
+                <div class="tab-content" id="restaurant-tab">
+                    <form class="booking-form" id="restaurantBookingForm" action="form-action.html" method="get">
+                        <input type="hidden" name="bookingType" value="restaurant">
+                        <div class="form-group">
+                            <label for="restaurantDate">Date</label>
+                            <input type="date" id="restaurantDate" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="restaurantTime">Time</label>
+                            <select id="restaurantTime" name="time" required>
+                                <option value="">Select Time</option>
+                                <!-- Times populated by JavaScript -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="restaurantAdults">Adults</label>
+                            <select id="restaurantAdults" name="adults" required>
+                                <option value="1">1 Adult</option>
+                                <option value="2" selected>2 Adults</option>
+                                <option value="3">3 Adults</option>
+                                <option value="4">4 Adults</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="restaurantChildren">Children</label>
+                            <select id="restaurantChildren" name="children">
+                                <option value="0">0 Children</option>
+                                <option value="1">1 Child</option>
+                                <option value="2">2 Children</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="restaurantMenu">Menu Preference</label>
+                            <select id="restaurantMenu" name="menu">
+                                <option value="regular">Regular Menu</option>
+                                <option value="vegetarian">Vegetarian</option>
+                                <option value="vegan">Vegan</option>
+                                <option value="gluten-free">Gluten Free</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="book-btn">Reserve Table</button>
+                    </form>
+                </div>
+
+                <!-- Events Booking Form -->
+                <div class="tab-content" id="events-tab">
+                    <form class="booking-form" id="eventsBookingForm" action="form-action.html" method="get">
+                        <input type="hidden" name="bookingType" value="event">
+                        <div class="form-group">
+                            <label for="eventArrival">Arrival Date</label>
+                            <input type="date" id="eventArrival" name="arrival" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventArrivalTime">Arrival Time</label>
+                            <select id="eventArrivalTime" name="arrivalTime" required>
+                                <option value="">Select Time</option>
+                                <!-- Times populated by JavaScript -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventDeparture">Departure Date</label>
+                            <input type="date" id="eventDeparture" name="departure" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventDepartureTime">Departure Time</label>
+                            <select id="eventDepartureTime" name="departureTime" required>
+                                <option value="">Select Time</option>
+                                <!-- Times populated by JavaScript -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventAdults">Adults</label>
+                            <select id="eventAdults" name="adults" required>
+                                <option value="10">10 Adults</option>
+                                <option value="20">20 Adults</option>
+                                <option value="30">30 Adults</option>
+                                <option value="40">40 Adults</option>
+                                <option value="50">50+ Adults</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventChildren">Children</label>
+                            <select id="eventChildren" name="children">
+                                <option value="0">0 Children</option>
+                                <option value="5">1-5 Children</option>
+                                <option value="10">6-10 Children</option>
+                                <option value="15">11-15 Children</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="book-btn">Inquire About Event</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <main class="container">
-        <section id="site-name">
-            <h2>Site Name</h2>
-            <p><strong>Dana Hotel & Resorts</strong></p>
-            <p>This name was selected to represent a premium hospitality brand that offers both hotel accommodations and resort experiences. "Dana" evokes a sense of elegance and sophistication while remaining memorable and easy to pronounce across different cultures. The inclusion of "& Resorts" emphasizes the comprehensive nature of the property, suggesting not just rooms but a complete luxury experience with amenities.</p>
-        </section>
-
-        <section id="site-purpose">
-            <h2>Site Purpose</h2>
-            <p>The Dana Hotel & Resorts website serves as the primary digital platform for showcasing luxury accommodations, premium amenities, and exceptional guest experiences. The site provides:</p>
-            <ul>
-                <li>Comprehensive room and suite information with detailed descriptions and pricing</li>
-                <li>Online booking functionality for rooms, restaurant reservations, and event spaces</li>
-                <li>Detailed information about hotel amenities including spa, dining, pool, and fitness facilities</li>
-                <li>Virtual tours and high-quality imagery to showcase the property</li>
-                <li>Contact information and location details for potential guests</li>
-                <li>Special offers and promotional content to drive bookings</li>
-                <li>Information about local attractions and activities for guests</li>
-            </ul>
-        </section>
-
-        <section id="scenarios">
-            <h2>Scenarios</h2>
-            <p>These scenarios represent questions that potential guests might have when visiting the website:</p>
-            <ol>
-                <li><strong>Business Traveler:</strong> "I need to book a comfortable room with reliable Wi-Fi and workspace for my business trip to Accra next month. What room options are available and what business amenities does the hotel offer?"</li>
-                <li><strong>Family Vacationer:</strong> "We're planning a family vacation with two children. Does the hotel have family-friendly accommodations and activities? Are there connecting rooms or suites available?"</li>
-                <li><strong>Luxury Experience Seeker:</strong> "I'm looking for a premium hotel experience with spa services, fine dining, and exceptional service. What luxury amenities and services does Dana Hotel offer?"</li>
-                <li><strong>Event Planner:</strong> "I need to organize a corporate event for 50 people. Does the hotel have suitable event spaces and what catering options are available?"</li>
-            </ol>
-        </section>
-
-        <section id="color-schema">
-            <h2>Color Schema</h2>
-            <p>The selected color palette reflects luxury, elegance, and warmth appropriate for a high-end hospitality brand:</p>
+        <!-- Featured Rooms Section -->
+        <section class="featured-rooms">
+            <h2 class="section-title">Luxury Accommodations</h2>
+            <p class="section-subtitle">Discover our carefully curated selection of rooms and suites, each designed to provide the ultimate comfort and luxury experience.</p>
             
-            <div class="color-swatch" style="background-color: #1a3c6e;">
-                Primary Blue<br>#1a3c6e
+            <!-- Error message container -->
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+            
+            <!-- Rooms will be dynamically loaded here -->
+            <div class="rooms-grid" id="roomsContainer">
+                <!-- Content will be loaded by JavaScript -->
             </div>
-            <p><strong>Usage:</strong> Primary brand color used for headers, navigation, primary buttons, and key accents. Represents trust, reliability, and professionalism. This deep blue conveys stability and luxury.</p>
-            
-            <div class="color-swatch" style="background-color: #402a0b; color: white;">
-                Secondary Brown<br>#402a0b
-            </div>
-            <p><strong>Usage:</strong> Secondary color used for highlights, secondary buttons, borders, and complementary elements. Evokes warmth, comfort, and luxury. This rich brown suggests sophistication and earthiness.</p>
-            
-            <div class="color-swatch" style="background-color: #f8f9fa; color: #333;">
-                Background<br>#f8f9fa
-            </div>
-            <p><strong>Usage:</strong> Light background color for content areas to ensure readability and clean aesthetic. Provides contrast for text and other elements.</p>
-            
-            <div class="color-swatch" style="background-color: #333333; color: white;">
-                Text Color<br>#333333
-            </div>
-            <p><strong>Usage:</strong> Primary text color for body content, providing excellent contrast against light backgrounds while remaining easy to read.</p>
         </section>
 
-        <section id="typography">
-            <h2>Typography</h2>
-            <p>The typography selection combines elegance with readability to create a sophisticated yet accessible experience:</p>
+        <!-- Amenities Preview -->
+        <section class="amenities-preview">
+            <h2 class="section-title">Premium Amenities</h2>
+            <p class="section-subtitle">Indulge in our world-class facilities designed for your relaxation and enjoyment.</p>
             
-            <h3 style="font-family: 'Playfair Display', serif;">Playfair Display</h3>
-            <p><strong>Usage:</strong> Primary font for all headings (H2, H3, H4). This serif font conveys elegance, tradition, and luxury appropriate for a high-end hotel brand. Its refined appearance establishes a premium tone throughout the website.</p>
-            <p><strong>Usage:</strong> light-text for heading (H1). This serif font conveys elegance, tradition, and luxury appropriate for a high-end hotel brand. Its refined appearance establishes a premium tone throughout the website.</p>
-            
-            <h3 style="font-family: 'Montserrat', sans-serif;">Montserrat</h3>
-            <p><strong>Usage:</strong> Primary font for body text, navigation, buttons, and all other content. This clean, modern sans-serif font ensures excellent readability across all devices while complementing the elegant heading font. Its geometric forms provide a contemporary contrast to the traditional serif headings.</p>
-        </section>
-
-        <section id="wireframe">
-            <h2>Wireframe</h2>
-            <p>Basic layout sketches for the home page across different screen sizes based on the provided wireframe document:</p>
-            
-            <div class="wireframe-grid">
-                <div>
-                    <h3>Desktop View (1200px+)</h3>
-                    <div class="wireframe">
-                        <p><strong>HEADER</strong></p>
-                        <p>Hotel Name | Contact Info | Language Selector</p>
-                    </div>
-                    <div class="wireframe">
-                        <p><strong>NAV LIST</strong></p>
-                        <p>Home | Rooms | Amenities | Restaurant | Events</p>
-                    </div>
-                    <div class="wireframe">
-                        <p><strong>HERO IMAGE</strong></p>
-                        <p>Full-width banner with hotel imagery and tagline</p>
-                    </div>
-                    <div class="wireframe">
-                        <p><strong>BOOKING OVERLAY</strong></p>
-                        <p>Tabbed booking form (Rooms/Restaurant/Events)</p>
-                    </div>
-                    <div class="wireframe">
-                        <p><strong>ROOMS</strong></p>
-                        <p>Featured room cards in grid layout</p>
-                    </div>
-                    <div class="wireframe">
-                        <p><strong>AMENITIES</strong></p>
-                        <p>Amenity highlights in grid layout</p>
-                    </div>
-                    <div class="wireframe">
-                        <p><strong>FOOTER</strong></p>
-                        <p>Contact info, social links, quick links</p>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3>Mobile View (320px)</h3>
-                    <div class="wireframe">
-                        <p><strong>HEADER</strong></p>
-                        <p>Hotel Name | Hamburger Menu</p>
-                    </div>
-                    <div class="wireframe">
-                        <p><strong>HERO IMG</strong></p>
-                        <p>Full-height hero image with centered text</p>
-                    </div>
-                    <div class="wireframe">
-                        <p><strong>BOOKING OVERLAY</strong></p>
-                        <p>Simplified booking form below hero</p>
-                    </div>
-                    <div class="wireframe">
-                        <p><strong>ROOMS</strong></p>
-                        <p>Stacked room cards</p>
-                    </div>
-                    <div class="wireframe">
-                        <p><strong>AMENITIES</strong></p>
-                        <p>Stacked amenity cards</p>
-                    </div>
-                    <div class="wireframe">
-                        <p><strong>FOOTER</strong></p>
-                        <p>Stacked footer content</p>
-                    </div>
+            <div class="amenities-grid" id="amenitiesPreviewContainer">
+                <!-- Dynamic content will be loaded here -->
+                <div class="amenity-card">
+                    <div class="amenity-loading">Loading amenities...</div>
                 </div>
             </div>
-            
-            <p><strong>Note:</strong> The wireframe represents the basic layout structure without detailed styling. The actual implementation will include proper spacing, imagery, and interactive elements as shown in the provided code.</p>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 Dana Hotel & Resorts Website Plan</p>
-            <p>WDD 231: Web Frontend Development</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Dana Hotel & Resorts</h3>
+                    <p>⭐️⭐️⭐️⭐️ 4-Star Luxury Accommodation</p>
+                    <p>123 Luxury Avenue, Prestige District<br>Accra, Ghana</p>
+                    <p>📞 +233 (55) 846-2774<br>✉️ info@danahotel.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">Twitter</a>
+                        <a href="#">LinkedIn</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="attributions.html" aria-label="View resource attributions">Attributions</a>
+                    <a href="rooms.html" aria-label="Book a room">Room Booking</a>
+                    <a href="amenities.html" aria-label="View hotel amenities">Amenities</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Dana Hotel & Resorts. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 </body>
