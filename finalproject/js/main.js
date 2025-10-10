@@ -10,14 +10,29 @@ import { initializeBookingForms, displayFormData } from './modules/booking.js';
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 
+// Image handling configuration
+const imageConfig = {
+    placeholder: 'images/placeholder-image.jpg',
+    loading: 'lazy',
+    sizes: {
+        small: '(max-width: 768px) 100vw',
+        medium: '(max-width: 1200px) 50vw',
+        large: '33vw'
+    },
+    altText: {
+        rooms: 'Hotel room accommodation',
+        amenities: 'Hotel facility and service'
+    }
+};
+
 // Initialize page based on current page
 document.addEventListener('DOMContentLoaded', function() {
     initializeNavigation();
+    initializeImageHandling();
     initializeBookingForms();
     setupModal();
     setMinimumDates();
     
-    // Page-specific initializations
     const currentPage = window.location.pathname.split('/').pop();
     
     switch(currentPage) {
@@ -34,6 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
         case 'form-action.html':
             initializeFormActionPage();
             break;
+        case 'attributions.html':
+            initializeAttributionsPage();
+            break;
     }
 });
 
@@ -45,6 +63,84 @@ function initializeNavigation() {
             hamburger.classList.toggle('active');
         });
     }
+    
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+    });
+}
+
+// Image handling initialization
+function initializeImageHandling() {
+    setupLazyLoading();
+    setupImageErrorHandling();
+    optimizeImageLoading();
+}
+
+// Setup lazy loading for images
+function setupLazyLoading() {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    
+    if ('loading' in HTMLImageElement.prototype) {
+        images.forEach(img => {
+            if (!img.loading) {
+                img.loading = 'lazy';
+            }
+        });
+    } else {
+        setupIntersectionObserver();
+    }
+}
+
+// Intersection Observer for lazy loading fallback
+function setupIntersectionObserver() {
+    if (!('IntersectionObserver' in window)) return;
+
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+
+    document.querySelectorAll('img[data-src]').forEach(img => {
+        imageObserver.observe(img);
+    });
+}
+
+// Handle image loading errors
+function setupImageErrorHandling() {
+    document.addEventListener('error', (e) => {
+        if (e.target.tagName === 'IMG') {
+            const img = e.target;
+            console.warn(`Image failed to load: ${img.src}`);
+            img.alt = 'Image not available';
+            img.classList.add('image-error');
+        }
+    }, true);
+}
+
+// Optimize image loading based on viewport
+function optimizeImageLoading() {
+    const responsiveImages = document.querySelectorAll('img[data-srcset]');
+    
+    responsiveImages.forEach(img => {
+        if (img.dataset.srcset) {
+            img.srcset = img.dataset.srcset;
+        }
+        if (img.dataset.sizes) {
+            img.sizes = img.dataset.sizes;
+        }
+    });
 }
 
 // Home page initialization
@@ -55,6 +151,7 @@ function initializeHomePage() {
     populateTimeOptions();
     setupStickyBooking();
     setupTabFunctionality();
+    setupHeroImage();
 }
 
 // Rooms page initialization
@@ -64,6 +161,7 @@ function initializeRoomsPage() {
     setupStickyBookingBar();
     setupRoomsModal();
     setupRoomsForm();
+    setupRoomGallery();
 }
 
 // Amenities page initialization
@@ -72,11 +170,143 @@ function initializeAmenitiesPage() {
     loadSavedPreferences();
     populateTimeOptions();
     setupAmenitiesNavigation();
+    setupAmenitiesGallery();
 }
 
 // Form action page initialization
 function initializeFormActionPage() {
     displayFormData();
+}
+
+// Attributions page initialization
+function initializeAttributionsPage() {
+    console.log('Attributions page initialized');
+}
+
+// Setup hero image for home page
+function setupHeroImage() {
+    const heroSection = document.querySelector('.hero');
+    if (!heroSection) return;
+
+    const heroImage = heroSection.querySelector('img');
+    if (heroImage) {
+        heroImage.loading = 'eager';
+        heroImage.addEventListener('error', () => {
+            heroImage.src = imageConfig.placeholder;
+            heroImage.alt = 'Hotel exterior';
+        });
+    }
+}
+
+// Setup room gallery functionality
+function setupRoomGallery() {
+    const galleryContainers = document.querySelectorAll('.room-gallery');
+    
+    galleryContainers.forEach(container => {
+        const images = container.querySelectorAll('img');
+        
+        images.forEach((img) => {
+            img.addEventListener('click', () => {
+                openImageModal(img.src, img.alt);
+            });
+            
+            img.setAttribute('tabindex', '0');
+            img.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openImageModal(img.src, img.alt);
+                }
+            });
+        });
+    });
+}
+
+// Setup amenities gallery functionality
+function setupAmenitiesGallery() {
+    const amenityItems = document.querySelectorAll('.amenity-item');
+    
+    amenityItems.forEach(item => {
+        const img = item.querySelector('img');
+        if (img) {
+            item.addEventListener('mouseenter', () => {
+                img.style.transform = 'scale(1.05)';
+            });
+            
+            item.addEventListener('mouseleave', () => {
+                img.style.transform = 'scale(1)';
+            });
+            
+            img.addEventListener('click', () => {
+                openImageModal(img.src, img.alt);
+            });
+        }
+    });
+}
+
+// Open image modal for larger view
+function openImageModal(src, alt) {
+    const modal = document.createElement('div');
+    modal.className = 'image-modal';
+    modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+        cursor: zoom-out;
+    `;
+    
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = alt;
+    img.style.cssText = `
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+        border-radius: 8px;
+    `;
+    
+    const closeBtn = document.createElement('button');
+    closeBtn.textContent = '×';
+    closeBtn.style.cssText = `
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 40px;
+        cursor: pointer;
+        z-index: 10001;
+    `;
+    
+    modal.appendChild(img);
+    modal.appendChild(closeBtn);
+    document.body.appendChild(modal);
+    
+    const closeModal = () => {
+        document.body.removeChild(modal);
+        document.removeEventListener('keydown', handleEscape);
+    };
+    
+    const handleEscape = (e) => {
+        if (e.key === 'Escape') closeModal();
+    };
+    
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    
+    closeBtn.addEventListener('click', closeModal);
+    document.addEventListener('keydown', handleEscape);
+    
+    document.body.style.overflow = 'hidden';
+    modal.addEventListener('click', closeModal);
 }
 
 // Tab functionality for booking forms
@@ -89,11 +319,9 @@ function setupTabFunctionality() {
             button.addEventListener('click', () => {
                 const tabId = button.getAttribute('data-tab');
                 
-                // Remove active class from all buttons and contents
                 tabButtons.forEach(btn => btn.classList.remove('active'));
                 tabContents.forEach(content => content.classList.remove('active'));
                 
-                // Add active class to clicked button and corresponding content
                 button.classList.add('active');
                 const targetTab = document.getElementById(`${tabId}-tab`);
                 if (targetTab) {
@@ -159,7 +387,6 @@ function setupAmenitiesNavigation() {
 function loadSavedPreferences() {
     const preferences = getBookingPreferences();
     
-    // Room booking form preferences
     if (preferences.arrivalDate) {
         const arrivalInput = document.getElementById('arrival') || document.getElementById('arrivalDate');
         if (arrivalInput) arrivalInput.value = preferences.arrivalDate;
@@ -201,12 +428,18 @@ function setMinimumDates() {
     const dateInputs = document.querySelectorAll('input[type="date"]');
     dateInputs.forEach(input => {
         input.min = today;
+        
+        if (input.id === 'arrival' || input.id === 'arrivalDate') {
+            input.value = today;
+        }
+        
+        if (input.id === 'departure' || input.id === 'departureDate') {
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            input.value = tomorrow.toISOString().split('T')[0];
+        }
     });
 }
-
-// =============================================
-// ROOMS PAGE SPECIFIC FUNCTIONALITY
-// =============================================
 
 // Setup rooms modal functionality
 function setupRoomsModal() {
@@ -214,9 +447,10 @@ function setupRoomsModal() {
     const closeModal = document.getElementById('closeModal');
     const modalContent = document.getElementById('modalContent');
 
-    if (closeModal) {
+    if (closeModal && roomModal) {
         closeModal.addEventListener('click', () => {
-            if (roomModal) roomModal.style.display = 'none';
+            roomModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
         });
     }
 
@@ -224,6 +458,7 @@ function setupRoomsModal() {
         window.addEventListener('click', (e) => {
             if (e.target === roomModal) {
                 roomModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
             }
         });
     }
@@ -234,7 +469,6 @@ function setupRoomsForm() {
     const bookingForm = document.getElementById('roomBookingForm');
     
     if (bookingForm) {
-        // Save preferences when form changes
         bookingForm.addEventListener('change', () => {
             const preferences = {
                 arrivalDate: document.getElementById('arrivalDate').value,
@@ -245,7 +479,6 @@ function setupRoomsForm() {
             saveBookingPreferences(preferences);
         });
 
-        // Form submission
         bookingForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const formData = new FormData(bookingForm);
@@ -256,21 +489,26 @@ function setupRoomsForm() {
 }
 
 // Create room modal content for rooms page
-export function createRoomModal(roomData) {
+function createRoomModal(roomData) {
     const roomModal = document.getElementById('roomModal');
     const modalContent = document.getElementById('modalContent');
     
     if (!roomModal || !modalContent) return;
 
     const modalHTML = `
-        <h2>${roomData.name}</h2>
+        <h2>${escapeHTML(roomData.name)}</h2>
         <div class="modal-room-details">
-            <div>
-                <img src="${roomData.image}" alt="${roomData.name}" class="modal-room-image" loading="lazy">
+            <div class="modal-image-container">
+                <img src="${escapeHTML(roomData.image)}" 
+                     alt="${escapeHTML(roomData.name)}" 
+                     class="modal-room-image" 
+                     loading="lazy"
+                     onerror="this.src='${imageConfig.placeholder}'">
+                <div class="image-loading" style="display: none;">Loading...</div>
             </div>
-            <div>
+            <div class="modal-room-info">
                 <div class="room-price">$${roomData.price}/night</div>
-                <p>${roomData.description}</p>
+                <p>${escapeHTML(roomData.description)}</p>
                 <ul class="room-features">
                     <li>👥 Capacity: ${roomData.capacity} guests</li>
                     <li>🛏️ ${roomData.bedType || 'Queen Bed'}</li>
@@ -284,6 +522,24 @@ export function createRoomModal(roomData) {
     
     modalContent.innerHTML = modalHTML;
     roomModal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    
+    const modalImage = modalContent.querySelector('.modal-room-image');
+    if (modalImage) {
+        const loadingIndicator = modalContent.querySelector('.image-loading');
+        
+        modalImage.addEventListener('load', () => {
+            if (loadingIndicator) loadingIndicator.style.display = 'none';
+        });
+        
+        modalImage.addEventListener('error', () => {
+            if (loadingIndicator) loadingIndicator.style.display = 'none';
+        });
+        
+        if (!modalImage.complete) {
+            if (loadingIndicator) loadingIndicator.style.display = 'block';
+        }
+    }
 }
 
 // Book room function
@@ -295,15 +551,94 @@ function bookThisRoom(roomId) {
     window.location.href = `form-action.html?${searchParams.toString()}`;
 }
 
-// Make bookThisRoom available globally for onclick events
-window.bookThisRoom = bookThisRoom;
-
 // Setup room detail button event listeners
-export function setupRoomDetailButtons() {
+function setupRoomDetailButtons() {
     document.querySelectorAll('.view-details-btn').forEach(button => {
         button.addEventListener('click', (e) => {
-            const roomData = JSON.parse(e.target.getAttribute('data-room').replace(/&#39;/g, "'"));
-            createRoomModal(roomData);
+            try {
+                const roomData = JSON.parse(e.target.getAttribute('data-room').replace(/&#39;/g, "'"));
+                createRoomModal(roomData);
+            } catch (error) {
+                console.error('Error parsing room data:', error);
+                showError('Unable to load room details. Please try again.');
+            }
         });
     });
 }
+
+// Preload critical images
+function preloadCriticalImages(imageUrls) {
+    imageUrls.forEach(url => {
+        const img = new Image();
+        img.src = url;
+    });
+}
+
+// Get optimized image URL
+function getOptimizedImageUrl(originalUrl, width = 800) {
+    return originalUrl;
+}
+
+// Check if image exists
+async function checkImageExists(url) {
+    try {
+        const response = await fetch(url, { method: 'HEAD' });
+        return response.ok;
+    } catch {
+        return false;
+    }
+}
+
+// Escape HTML to prevent XSS
+function escapeHTML(str) {
+    if (typeof str !== 'string') return str;
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+}
+
+// Show error message
+function showError(message) {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.textContent = message;
+    errorDiv.style.cssText = `
+        margin: 1rem 0;
+        text-align: center;
+        padding: 1rem;
+        background: #fee;
+        border: 1px solid #fcc;
+        border-radius: 4px;
+        color: #c33;
+    `;
+
+    const main = document.querySelector('main');
+    if (main) {
+        main.prepend(errorDiv);
+    } else {
+        document.body.prepend(errorDiv);
+    }
+    
+    setTimeout(() => {
+        if (errorDiv.parentNode) {
+            errorDiv.parentNode.removeChild(errorDiv);
+        }
+    }, 5000);
+}
+
+// Export functions
+export { 
+    createRoomModal, 
+    setupRoomDetailButtons, 
+    showError,
+    preloadCriticalImages,
+    getOptimizedImageUrl,
+    checkImageExists,
+    openImageModal
+};
+
+// Make functions available globally
+window.createRoomModal = createRoomModal;
+window.bookThisRoom = bookThisRoom;
+window.openImageModal = openImageModal;
+

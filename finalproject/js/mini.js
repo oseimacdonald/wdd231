@@ -1,0 +1,1 @@
+console.log('mini.js loaded - no critical functions moved here');

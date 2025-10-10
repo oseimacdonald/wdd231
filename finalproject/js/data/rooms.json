@@ -92,7 +92,7 @@
       "capacity": 2,
       "amenities": ["Private Jacuzzi", "Champagne Service", "Romantic Decor", "Balcony"],
       "available": true,
-      "image": "images/hotelbed1.webp",
+      "image": "images/hotelbed1.jpg",
       "description": "Romantic suite perfect for special occasions and honeymoons",
       "bedType": "King Bed",
       "size": "700 sq ft",
