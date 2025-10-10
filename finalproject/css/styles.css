@@ -88,7 +88,7 @@ nav {
 }
 
 .nav-menu a {
-    color: #F6A737;
+    color: var(--light-text);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s;
@@ -96,7 +96,7 @@ nav {
 
 .nav-menu a:hover,
 .nav-menu a.active {
-    color: var(--secondary-color);
+    color: #f6a737;
 }
 
 .hamburger {
