@@ -1,3 +1,32 @@
+/* ===== EMERGENCY FIX - FORCE BOOKING CONTENT HIDDEN ===== */
+#bookingContent {
+    all: unset !important;
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    position: absolute !important;
+    bottom: 100% !important;
+    right: 0 !important;
+    background: var(--light-text) !important;
+    border-radius: 12px !important;
+    padding: 1.5rem !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
+    z-index: 10002 !important;
+    min-width: 400px !important;
+    transform: translateY(10px) !important;
+    transition: all 0.3s ease !important;
+    margin-bottom: 1rem !important;
+}
+
+#bookingContent.active {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: all !important;
+    transform: translateY(0) !important;
+}
+
 :root {
     --primary-color: #1a3c6e;
     --secondary-color: #5e3700;
@@ -77,6 +106,7 @@ nav {
     background-color: rgba(0,0,0,0.9);
     padding: 1rem 0;
     position: relative;
+    z-index: 1000;
 }
 
 .nav-menu {
@@ -119,6 +149,7 @@ nav {
     justify-content: center;
     text-align: center;
     padding-top: 60px;
+    z-index: 1;
 }
 
 .hero-content {
@@ -155,43 +186,75 @@ nav {
     font-size: 3rem;
 }
 
+/* Booking Overlay Styles - FIXED */
 .booking-overlay {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: transparent;
-    padding: 0.4rem 0;
-    box-shadow: 0 10px 30px rgba(70, 56, 56, 0.3);
-    z-index: 4;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10000;
+}
+
+.booking-hamburger {
+    background-color: var(--secondary-color);
+    color: var(--light-text);
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 10001;
+    position: relative;
 }
 
-.booking-overlay.sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
+.booking-hamburger:hover {
+    background-color: #b8976a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.booking-content {
+    position: absolute;
+    bottom: 100%;
     right: 0;
-    width: 100%;
-    animation: slideDown 0.3s ease;
+    margin-bottom: 1rem;
+    background: var(--light-text);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    padding: 1.5rem;
+    min-width: 400px;
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10002;
+    visibility: hidden;
 }
 
-@keyframes slideDown {
+.booking-content.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+@keyframes slideUp {
     from {
-        transform: translateY(-20px);
-        opacity: 0.8;
+        opacity: 0;
+        transform: translateY(20px);
     }
     to {
-        transform: translateY(0);
         opacity: 1;
+        transform: translateY(0);
     }
 }
 
 .booking-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    width: 100%;
 }
 
 .booking-tabs {
@@ -272,6 +335,7 @@ nav {
     cursor: pointer;
     transition: background-color 0.3s;
     font-size: 1.1rem;
+    grid-column: 1 / -1;
 }
 
 .book-btn:hover {
@@ -892,17 +956,6 @@ footer {
         z-index: 1002;
     }
 
-    .booking-overlay.sticky {
-        position: relative;
-        transform: none;
-        animation: none;
-    }
-    
-    .booking-sticky {
-        position: relative;
-        transform: none;
-    }
-
     .nav-menu {
         display: none;
         flex-direction: column;
@@ -912,7 +965,7 @@ footer {
         width: 100%;
         background-color: var(--primary-color);
         padding: 1rem 0;
-        z-index: 1001
+        z-index: 1001;
     }
 
     .nav-menu.active {
@@ -929,19 +982,17 @@ footer {
     }
 
     .booking-overlay {
-        position: relative;
-        bottom: auto;
-        width: 100%;
-        margin-top: 2rem;
+        bottom: 10px;
+        right: 10px;
     }
-
-    .booking-overlay.sticky {
-        position: relative;
-        width: 100%;
+    
+    .booking-content {
+        min-width: 350px;
+        right: 0;
+        max-width: calc(100vw - 40px);
     }
-
-    .booking-form,
-    .form-grid {
+    
+    .booking-form {
         grid-template-columns: 1fr;
     }
 
@@ -1037,5 +1088,15 @@ footer {
         padding: 0.5rem 0.75rem;
         font-size: 0.8rem;
     }
-}
 
+    .booking-content {
+        min-width: 300px;
+        right: 0;
+        padding: 1rem;
+    }
+    
+    .booking-hamburger {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+    }
+}

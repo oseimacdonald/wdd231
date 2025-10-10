@@ -9,6 +9,8 @@ import { initializeBookingForms, displayFormData } from './modules/booking.js';
 // DOM Elements
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
+const bookingHamburger = document.getElementById('bookingHamburger');
+const bookingContent = document.getElementById('bookingContent');
 
 // Image handling configuration
 const imageConfig = {
@@ -32,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeBookingForms();
     setupModal();
     setMinimumDates();
+    setupBookingOverlay();
     
     const currentPage = window.location.pathname.split('/').pop();
     
@@ -73,6 +76,55 @@ function initializeNavigation() {
             }
         });
     });
+}
+
+// Booking overlay functionality - UPDATED SECTION
+function setupBookingOverlay() {
+    if (bookingHamburger && bookingContent) {
+        // Toggle booking content visibility
+        bookingHamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            
+            // Toggle active class
+            bookingContent.classList.toggle('active');
+            
+            // Close navigation menu if open
+            if (navMenu && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                if (hamburger) hamburger.classList.remove('active');
+            }
+        });
+
+        // Close booking content when clicking outside
+        document.addEventListener('click', (e) => {
+            if (bookingContent.classList.contains('active') && 
+                !bookingContent.contains(e.target) && 
+                !bookingHamburger.contains(e.target)) {
+                bookingContent.classList.remove('active');
+            }
+        });
+
+        // Prevent booking content clicks from closing it
+        bookingContent.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        // Close booking content on form submission
+        const bookingForms = document.querySelectorAll('.booking-form');
+        bookingForms.forEach(form => {
+            form.addEventListener('submit', () => {
+                bookingContent.classList.remove('active');
+            });
+        });
+
+        // Close booking content on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && bookingContent.classList.contains('active')) {
+                bookingContent.classList.remove('active');
+            }
+        });
+    }
 }
 
 // Image handling initialization
@@ -149,7 +201,6 @@ function initializeHomePage() {
     displayAmenitiesPreview();
     loadSavedPreferences();
     populateTimeOptions();
-    setupStickyBooking();
     setupTabFunctionality();
     setupHeroImage();
 }
@@ -158,7 +209,6 @@ function initializeHomePage() {
 function initializeRoomsPage() {
     displayAllRooms();
     loadSavedPreferences();
-    setupStickyBookingBar();
     setupRoomsModal();
     setupRoomsForm();
     setupRoomGallery();
@@ -292,6 +342,7 @@ function openImageModal(src, alt) {
     const closeModal = () => {
         document.body.removeChild(modal);
         document.removeEventListener('keydown', handleEscape);
+        document.body.style.overflow = '';
     };
     
     const handleEscape = (e) => {
@@ -306,7 +357,6 @@ function openImageModal(src, alt) {
     document.addEventListener('keydown', handleEscape);
     
     document.body.style.overflow = 'hidden';
-    modal.addEventListener('click', closeModal);
 }
 
 // Tab functionality for booking forms
@@ -328,38 +378,6 @@ function setupTabFunctionality() {
                     targetTab.classList.add('active');
                 }
             });
-        });
-    }
-}
-
-// Sticky booking overlay behavior
-function setupStickyBooking() {
-    const bookingOverlay = document.getElementById('bookingOverlay');
-    if (bookingOverlay) {
-        window.addEventListener('scroll', () => {
-            const heroSection = document.querySelector('.hero');
-            if (heroSection) {
-                const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-                if (window.scrollY > heroBottom - 100) {
-                    bookingOverlay.classList.add('sticky');
-                } else {
-                    bookingOverlay.classList.remove('sticky');
-                }
-            }
-        });
-    }
-}
-
-// Sticky booking bar for rooms page
-function setupStickyBookingBar() {
-    const bookingSticky = document.getElementById('bookingSticky');
-    if (bookingSticky) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                bookingSticky.style.transform = 'translateY(0)';
-            } else {
-                bookingSticky.style.transform = 'translateY(-100%)';
-            }
         });
     }
 }
@@ -641,4 +659,3 @@ export {
 window.createRoomModal = createRoomModal;
 window.bookThisRoom = bookThisRoom;
 window.openImageModal = openImageModal;
-
