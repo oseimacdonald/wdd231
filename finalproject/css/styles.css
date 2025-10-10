@@ -88,7 +88,7 @@ nav {
 }
 
 .nav-menu a {
-    color: var(--light-text);
+    color: #F6A737;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s;
