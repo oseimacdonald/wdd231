@@ -1,4 +1,4 @@
-// js/modules/api.js
+// scripts/modules/api.js
 
 // =============================================
 // DATA FETCHING FUNCTIONS
@@ -6,15 +6,19 @@
 
 export async function fetchRoomData() {
     try {
-        const response = await fetch('./js/data/rooms.json');
+        // API INTEGRATION: Fetching from JSON file
+        const response = await fetch('./scripts/data/rooms.json');
 
+        // HTTP error handling
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-
+        
+        // Parse JSON response
         const data = await response.json();
 
-        // Validate structure
+
+        // Validate structure - Comprehensive structure checking
         if (!data || typeof data !== 'object') {
             throw new Error('Invalid data format: expected object');
         }
@@ -97,7 +101,8 @@ export async function displayFeaturedRooms() {
             console.error('Rooms container not found');
             return;
         }
-
+        
+        // AWAIT: Waiting for async data fetch
         const rooms = await fetchRooms();
 
         if (!rooms || rooms.length === 0) {

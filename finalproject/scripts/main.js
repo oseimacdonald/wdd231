@@ -1,4 +1,4 @@
-// js/main.js
+// scripts/main.js
 
 // Import modules
 import { displayFeaturedRooms, displayAllRooms, displayAmenitiesPreview, displayAmenities } from './modules/api.js';
@@ -38,10 +38,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const currentPage = window.location.pathname.split('/').pop();
     
+// ASYNC INITIALIZATION: Different pages load different data
     switch(currentPage) {
         case 'index.html':
         case '':
-            initializeHomePage();
+            initializeHomePage();    // This calls async functions
             break;
         case 'rooms.html':
             initializeRoomsPage();
@@ -195,9 +196,10 @@ function optimizeImageLoading() {
     });
 }
 
-// Home page initialization
+// Home page initialization - ASYNC/AWAIT WITH TRY/CATCH
 function initializeHomePage() {
-    displayFeaturedRooms();
+    // These functions are async and use try/catch internally
+    displayFeaturedRooms();     // Async function
     displayAmenitiesPreview();
     loadSavedPreferences();
     populateTimeOptions();
@@ -297,6 +299,7 @@ function setupAmenitiesGallery() {
 function openImageModal(src, alt) {
     const modal = document.createElement('div');
     modal.className = 'image-modal';
+    /*
     modal.style.cssText = `
         position: fixed;
         top: 0;
@@ -333,7 +336,7 @@ function openImageModal(src, alt) {
         font-size: 40px;
         cursor: pointer;
         z-index: 10001;
-    `;
+    `;           */
     
     modal.appendChild(img);
     modal.appendChild(closeBtn);
@@ -620,6 +623,7 @@ function showError(message) {
     const errorDiv = document.createElement('div');
     errorDiv.className = 'error-message';
     errorDiv.textContent = message;
+    /*
     errorDiv.style.cssText = `
         margin: 1rem 0;
         text-align: center;
@@ -628,7 +632,7 @@ function showError(message) {
         border: 1px solid #fcc;
         border-radius: 4px;
         color: #c33;
-    `;
+    `;      */
 
     const main = document.querySelector('main');
     if (main) {
