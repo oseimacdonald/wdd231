@@ -1,5 +1,3 @@
-// scripts/main.js
-
 // Import modules
 import { displayFeaturedRooms, displayAllRooms, displayAmenitiesPreview, displayAmenities } from './modules/api.js';
 import { setupModal, showModal } from './modules/modal.js';
@@ -38,11 +36,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const currentPage = window.location.pathname.split('/').pop();
     
-// ASYNC INITIALIZATION: Different pages load different data
+    // ASYNC INITIALIZATION: Different pages load different data
     switch(currentPage) {
         case 'index.html':
         case '':
-            initializeHomePage();    // This calls async functions
+            initializeHomePage();
             break;
         case 'rooms.html':
             initializeRoomsPage();
@@ -79,25 +77,21 @@ function initializeNavigation() {
     });
 }
 
-// Booking overlay functionality - UPDATED SECTION
+// Booking overlay functionality
 function setupBookingOverlay() {
     if (bookingHamburger && bookingContent) {
-        // Toggle booking content visibility
         bookingHamburger.addEventListener('click', (e) => {
             e.stopPropagation();
             e.preventDefault();
             
-            // Toggle active class
             bookingContent.classList.toggle('active');
             
-            // Close navigation menu if open
             if (navMenu && navMenu.classList.contains('active')) {
                 navMenu.classList.remove('active');
                 if (hamburger) hamburger.classList.remove('active');
             }
         });
 
-        // Close booking content when clicking outside
         document.addEventListener('click', (e) => {
             if (bookingContent.classList.contains('active') && 
                 !bookingContent.contains(e.target) && 
@@ -106,12 +100,10 @@ function setupBookingOverlay() {
             }
         });
 
-        // Prevent booking content clicks from closing it
         bookingContent.addEventListener('click', (e) => {
             e.stopPropagation();
         });
 
-        // Close booking content on form submission
         const bookingForms = document.querySelectorAll('.booking-form');
         bookingForms.forEach(form => {
             form.addEventListener('submit', () => {
@@ -119,7 +111,6 @@ function setupBookingOverlay() {
             });
         });
 
-        // Close booking content on Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && bookingContent.classList.contains('active')) {
                 bookingContent.classList.remove('active');
@@ -196,10 +187,9 @@ function optimizeImageLoading() {
     });
 }
 
-// Home page initialization - ASYNC/AWAIT WITH TRY/CATCH
+// Home page initialization
 function initializeHomePage() {
-    // These functions are async and use try/catch internally
-    displayFeaturedRooms();     // Async function
+    displayFeaturedRooms();
     displayAmenitiesPreview();
     loadSavedPreferences();
     populateTimeOptions();
@@ -299,44 +289,14 @@ function setupAmenitiesGallery() {
 function openImageModal(src, alt) {
     const modal = document.createElement('div');
     modal.className = 'image-modal';
-    /*
-    modal.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.9);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 10000;
-        cursor: zoom-out;
-    `;
     
     const img = document.createElement('img');
     img.src = src;
     img.alt = alt;
-    img.style.cssText = `
-        max-width: 90%;
-        max-height: 90%;
-        object-fit: contain;
-        border-radius: 8px;
-    `;
     
     const closeBtn = document.createElement('button');
+    closeBtn.className = 'image-modal-close';
     closeBtn.textContent = '×';
-    closeBtn.style.cssText = `
-        position: absolute;
-        top: 20px;
-        right: 30px;
-        background: none;
-        border: none;
-        color: white;
-        font-size: 40px;
-        cursor: pointer;
-        z-index: 10001;
-    `;           */
     
     modal.appendChild(img);
     modal.appendChild(closeBtn);
@@ -525,7 +485,7 @@ function createRoomModal(roomData) {
                      class="modal-room-image" 
                      loading="lazy"
                      onerror="this.src='${imageConfig.placeholder}'">
-                <div class="image-loading" style="display: none;">Loading...</div>
+                <div class="image-loading hidden">Loading...</div>
             </div>
             <div class="modal-room-info">
                 <div class="room-price">$${roomData.price}/night</div>
@@ -536,7 +496,7 @@ function createRoomModal(roomData) {
                     <li>📏 ${roomData.size || '300 sq ft'}</li>
                     <li>${roomData.view ? `🌅 ${roomData.view}` : '🪟 City View'}</li>
                 </ul>
-                <button class="book-btn" style="width: 100%; margin-top: 1rem;" onclick="bookThisRoom('${roomData.id}')">Book Now</button>
+                <button class="book-btn full-width-btn" onclick="bookThisRoom('${roomData.id}')">Book Now</button>
             </div>
         </div>
     `;
@@ -550,15 +510,15 @@ function createRoomModal(roomData) {
         const loadingIndicator = modalContent.querySelector('.image-loading');
         
         modalImage.addEventListener('load', () => {
-            if (loadingIndicator) loadingIndicator.style.display = 'none';
+            if (loadingIndicator) loadingIndicator.classList.add('hidden');
         });
         
         modalImage.addEventListener('error', () => {
-            if (loadingIndicator) loadingIndicator.style.display = 'none';
+            if (loadingIndicator) loadingIndicator.classList.add('hidden');
         });
         
         if (!modalImage.complete) {
-            if (loadingIndicator) loadingIndicator.style.display = 'block';
+            if (loadingIndicator) loadingIndicator.classList.remove('hidden');
         }
     }
 }
@@ -623,16 +583,6 @@ function showError(message) {
     const errorDiv = document.createElement('div');
     errorDiv.className = 'error-message';
     errorDiv.textContent = message;
-    /*
-    errorDiv.style.cssText = `
-        margin: 1rem 0;
-        text-align: center;
-        padding: 1rem;
-        background: #fee;
-        border: 1px solid #fcc;
-        border-radius: 4px;
-        color: #c33;
-    `;      */
 
     const main = document.querySelector('main');
     if (main) {
