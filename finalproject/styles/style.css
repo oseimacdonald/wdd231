@@ -300,6 +300,37 @@ nav {
     margin-top: 1rem;
 }
 
+/* Missing Classes - Added */
+.booking-sticky {
+    position: sticky;
+    top: 0;
+    background: var(--light-text);
+    z-index: 999;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.loading-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: var(--background-color);
+    border-radius: 8px;
+    font-style: italic;
+    color: var(--text-color);
+}
+
+.loading-state::before {
+    content: "⏳";
+    margin-right: 0.5rem;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 .featured-rooms,
 .rooms-section {
     padding: 6rem 0 4rem;
@@ -1051,6 +1082,17 @@ footer {
         width: 100%;
         max-width: 300px;
     }
+
+    /* Mobile styles for missing classes */
+    .booking-sticky {
+        position: static;
+        box-shadow: none;
+    }
+
+    .loading-state {
+        padding: 1.5rem;
+        font-size: 0.9rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1098,4 +1140,3 @@ footer {
         font-size: 0.9rem;
     }
 }
-

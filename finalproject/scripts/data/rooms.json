@@ -158,7 +158,7 @@
       "capacity": 100,
       "amenities": ["Michelin Chef", "Wine Cellar", "Rooftop Views", "Seasonal Menu"],
       "available": true,
-      "image": "images/restaurant.jpeg",
+      "image": "images/restaurant.webp",
       "description": "Fine dining experience with world-class chefs",
       "hours": "6:00 AM - 11:00 PM"
     },
