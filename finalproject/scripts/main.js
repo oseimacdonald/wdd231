@@ -621,3 +621,4 @@ export {
 window.createRoomModal = createRoomModal;
 window.bookThisRoom = bookThisRoom;
 window.openImageModal = openImageModal;
+

@@ -33,131 +33,12 @@ h1, h2, h3, h4 {
     color: var(--primary-color);
 }
 
-/* Reusable Utility Classes */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-.text-center {
-    text-align: center;
-}
-
-.flex-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.flex-between {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.grid-auto-fit {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.grid-auto-fit-sm {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-}
-
-.card {
-    background: var(--light-text);
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}
-
-.card-sm {
-    padding: 1.5rem;
-    border-radius: 8px;
-}
-
-.card-lg {
-    padding: 2rem;
-    border-radius: 12px;
-}
-
-.btn {
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-    text-decoration: none;
-    display: inline-block;
-    text-align: center;
-    font-family: inherit;
-}
-
-.btn-primary {
-    background-color: var(--primary-color);
-    color: var(--light-text);
-}
-
-.btn-primary:hover {
-    background-color: #152a4d;
-}
-
-.btn-secondary {
-    background-color: var(--secondary-color);
-    color: var(--light-text);
-}
-
-.btn-secondary:hover {
-    background-color: #b8976a;
-}
-
-.btn-outline {
-    background: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-}
-
-.btn-outline:hover {
-    background: var(--primary-color);
-    color: var(--light-text);
-}
-
-.btn-full {
-    width: 100%;
-    margin-top: 1rem;
-}
-
-.section-padding {
-    padding: 4rem 0;
-}
-
-.section-padding-lg {
-    padding: 6rem 0 4rem;
-}
-
-.image-cover {
-    width: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-.list-unstyled {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-/* Header & Navigation */
 header {
     background-color: var(--primary-color);
     color: var(--light-text);
@@ -228,7 +109,6 @@ nav {
     cursor: pointer;
 }
 
-/* Hero Sections */
 .hero {
     position: relative;
     height: 80vh;
@@ -277,7 +157,7 @@ nav {
     font-size: 3rem;
 }
 
-/* Booking Overlay */
+/* Booking Overlay Styles */
 .booking-overlay {
     position: fixed;
     bottom: 20px;
@@ -398,7 +278,28 @@ nav {
     background-color: rgba(255, 255, 255, 0.9);
 }
 
-/* Rooms & Amenities Sections */
+.book-btn {
+    background-color: var(--secondary-color);
+    color: var(--light-text);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1.1rem;
+    grid-column: 1 / -1;
+}
+
+.book-btn:hover {
+    background-color: #b8976a;
+}
+
+.full-width-btn {
+    width: 100%;
+    margin-top: 1rem;
+}
+
 .featured-rooms,
 .rooms-section {
     padding: 6rem 0 4rem;
@@ -477,6 +378,28 @@ nav {
 
 .room-features li:last-child {
     border-bottom: none;
+}
+
+.view-more-btn,
+.view-details-btn {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.view-more-btn:hover,
+.view-details-btn:hover {
+    background-color: #152a4d;
 }
 
 .amenities-preview {
@@ -613,6 +536,23 @@ nav {
     margin-bottom: 1.5rem;
 }
 
+.learn-more-btn {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.learn-more-btn:hover {
+    background: var(--primary-color);
+    color: var(--light-text);
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -638,7 +578,6 @@ nav {
     font-size: 1.1rem;
 }
 
-/* Color-specific sections */
 .spa-section .highlight-card,
 .spa-section .amenity-info h2 {
     border-top: 4px solid var(--spa-color);
@@ -682,7 +621,6 @@ nav {
     border-left: 3px solid var(--secondary-color);
 }
 
-/* Modal Styles */
 .modal {
     display: none;
     position: fixed;
@@ -743,7 +681,7 @@ nav {
     border-radius: 8px;
 }
 
-/* Image Modal */
+/* Image Modal Styles */
 .image-modal {
     position: fixed;
     top: 0;
@@ -777,7 +715,7 @@ nav {
     z-index: 10001;
 }
 
-/* Utility Classes */
+/* Error and Loading Styles */
 .error-message {
     background-color: #fee;
     color: #c33;
@@ -815,7 +753,6 @@ nav {
     grid-column: 1 / -1;
 }
 
-/* Footer */
 footer {
     background-color: var(--primary-color);
     color: var(--light-text);
@@ -877,7 +814,6 @@ footer {
     border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-/* Attributions */
 .attributions-main {
     padding: 4rem 0;
     background: var(--light-text);
@@ -994,7 +930,18 @@ footer {
     flex-wrap: wrap;
 }
 
-/* Media Queries */
+.view-more-btn {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    width: auto;
+}
+
+.view-more-btn:hover {
+    background: var(--primary-color);
+    color: var(--light-text);
+}
+
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
@@ -1047,7 +994,10 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .rooms-grid,
+    .rooms-grid {
+        grid-template-columns: 1fr;
+    }
+
     .amenities-grid {
         grid-template-columns: 1fr;
     }
@@ -1096,7 +1046,8 @@ footer {
         align-items: center;
     }
 
-    .confirmation-actions .btn {
+    .confirmation-actions .book-btn,
+    .confirmation-actions .view-more-btn {
         width: 100%;
         max-width: 300px;
     }
@@ -1147,3 +1098,4 @@ footer {
         font-size: 0.9rem;
     }
 }
+
