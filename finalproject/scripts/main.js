@@ -13,6 +13,12 @@ const bookingContent = document.getElementById('bookingContent');
 // Image handling configuration
 const imageConfig = {
     placeholder: 'images/placeholder-image.jpg',
+    loading: 'lazy',
+    sizes: {
+        small: '(max-width: 768px) 100vw',
+        medium: '(max-width: 1200px) 50vw',
+        large: '33vw'
+    },
     altText: {
         rooms: 'Hotel room accommodation',
         amenities: 'Hotel facility and service'
@@ -122,8 +128,44 @@ function setupBookingOverlay() {
 
 // Image handling initialization
 function initializeImageHandling() {
+    setupLazyLoading();
     setupImageErrorHandling();
     optimizeImageLoading();
+}
+
+// Setup lazy loading for images
+function setupLazyLoading() {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    
+    if ('loading' in HTMLImageElement.prototype) {
+        images.forEach(img => {
+            if (!img.loading) {
+                img.loading = 'lazy';
+            }
+        });
+    } else {
+        setupIntersectionObserver();
+    }
+}
+
+// Intersection Observer for lazy loading fallback
+function setupIntersectionObserver() {
+    if (!('IntersectionObserver' in window)) return;
+
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+
+    document.querySelectorAll('img[data-src]').forEach(img => {
+        imageObserver.observe(img);
+    });
 }
 
 // Handle image loading errors
@@ -198,6 +240,7 @@ function setupHeroImage() {
 
     const heroImage = heroSection.querySelector('img');
     if (heroImage) {
+        heroImage.loading = 'eager';
         heroImage.addEventListener('error', () => {
             heroImage.src = imageConfig.placeholder;
             heroImage.alt = 'Hotel exterior';
@@ -448,6 +491,7 @@ function createRoomModal(roomData) {
                 <img src="${escapeHTML(roomData.image)}" 
                      alt="${escapeHTML(roomData.name)}" 
                      class="modal-room-image" 
+                     loading="lazy"
                      onerror="this.src='${imageConfig.placeholder}'">
                 <div class="image-loading hidden">Loading...</div>
             </div>
