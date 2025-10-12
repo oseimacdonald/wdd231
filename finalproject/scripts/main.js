@@ -173,7 +173,6 @@ function setupImageErrorHandling() {
     document.addEventListener('error', (e) => {
         if (e.target.tagName === 'IMG') {
             const img = e.target;
-            console.warn(`Image failed to load: ${img.src}`);
             img.alt = 'Image not available';
             img.classList.add('image-error');
         }
@@ -230,7 +229,7 @@ function initializeFormActionPage() {
 
 // Attributions page initialization
 function initializeAttributionsPage() {
-    console.log('Attributions page initialized');
+    // Attributions page initialized silently
 }
 
 // Setup hero image for home page
@@ -548,7 +547,6 @@ function setupRoomDetailButtons() {
                 const roomData = JSON.parse(e.target.getAttribute('data-room').replace(/&#39;/g, "'"));
                 createRoomModal(roomData);
             } catch (error) {
-                console.error('Error parsing room data:', error);
                 showError('Unable to load room details. Please try again.');
             }
         });
@@ -621,4 +619,3 @@ export {
 window.createRoomModal = createRoomModal;
 window.bookThisRoom = bookThisRoom;
 window.openImageModal = openImageModal;
-

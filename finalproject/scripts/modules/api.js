@@ -17,7 +17,6 @@ export async function fetchRoomData() {
         // Parse JSON response
         const data = await response.json();
 
-
         // Validate structure - Comprehensive structure checking
         if (!data || typeof data !== 'object') {
             throw new Error('Invalid data format: expected object');
@@ -50,14 +49,12 @@ export async function fetchRoomData() {
 
         const totalItems = data.rooms.length + data.amenities.length;
         if (totalItems < 15) {
-            console.warn(`Only ${totalItems} items found, minimum 15 required`);
+            // Silent warning for minimum items
         }
 
         return data;
 
     } catch (error) {
-        console.error('Error fetching room data:', error);
-
         if (error.name === 'TypeError' && error.message.includes('fetch')) {
             throw new Error('Network error: Unable to connect to server. Please check your internet connection.');
         } else if (error.name === 'SyntaxError') {
@@ -73,7 +70,6 @@ export async function fetchRooms() {
         const data = await fetchRoomData();
         return data.rooms || [];
     } catch (error) {
-        console.error('Error fetching rooms:', error);
         return [];
     }
 }
@@ -83,7 +79,6 @@ export async function fetchAmenities() {
         const data = await fetchRoomData();
         return data.amenities || [];
     } catch (error) {
-        console.error('Error fetching amenities:', error);
         return [];
     }
 }
@@ -98,7 +93,6 @@ export async function displayFeaturedRooms() {
         const errorMessage = document.getElementById('errorMessage');
 
         if (!roomsContainer) {
-            console.error('Rooms container not found');
             return;
         }
         
@@ -113,7 +107,7 @@ export async function displayFeaturedRooms() {
 
         const roomsHTML = featuredRooms.map(room => `
             <div class="room-card" data-room-id="${room.id}">
-                <img src="${room.image}" alt="${room.name}" class="room-image" loading="lazy" onerror="this.style.display='none'; console.error('Failed to load image:', this.src)">
+                <img src="${room.image}" alt="${room.name}" class="room-image" loading="lazy" onerror="this.style.display='none'">
                 <div class="room-content">
                     <h3 class="room-title">${room.name}</h3>
                     <div class="room-price">$${room.price}/night</div>
@@ -132,7 +126,6 @@ export async function displayFeaturedRooms() {
         roomsContainer.innerHTML = roomsHTML;
 
     } catch (error) {
-        console.error('Error displaying featured rooms:', error);
         if (errorMessage) {
             errorMessage.textContent = 'Unable to load room information. Please try again later.';
             errorMessage.style.display = 'block';
@@ -146,7 +139,6 @@ export async function displayAllRooms() {
         const errorMessage = document.getElementById('errorMessage');
 
         if (!roomsContainer) {
-            console.error('Rooms container not found');
             return;
         }
 
@@ -158,7 +150,7 @@ export async function displayAllRooms() {
 
         const roomsHTML = rooms.map(room => `
             <div class="room-card" data-room-id="${room.id}">
-                <img src="${room.image}" alt="${room.name}" class="room-image" loading="lazy" onerror="this.style.display='none'; console.error('Failed to load image:', this.src)">
+                <img src="${room.image}" alt="${room.name}" class="room-image" loading="lazy" onerror="this.style.display='none'">
                 <div class="room-content">
                     <h3 class="room-title">${room.name}</h3>
                     <div class="room-price">$${room.price}/night</div>
@@ -184,7 +176,6 @@ export async function displayAllRooms() {
         }, 100);
 
     } catch (error) {
-        console.error('Error displaying all rooms:', error);
         if (errorMessage) {
             errorMessage.textContent = 'Unable to load room information. Please try again later.';
             errorMessage.style.display = 'block';
@@ -200,7 +191,6 @@ export async function displayAmenitiesPreview() {
     try {
         const container = document.getElementById('amenitiesPreviewContainer');
         if (!container) {
-            console.log('Amenities preview container not found - might not be on home page');
             return;
         }
 
@@ -220,7 +210,7 @@ export async function displayAmenitiesPreview() {
         const amenitiesHTML = finalAmenities.map(amenity => `
             <div class="amenity-card">
                 <img src="${amenity.image}" alt="${amenity.name}" class="amenity-preview-image" loading="lazy"
-                     onerror="this.style.display='none'; console.error('Failed to load amenity image:', this.src)">
+                     onerror="this.style.display='none'">
                 <h3>${amenity.name}</h3>
                 <p>${amenity.description}</p>
                 <a href="amenities.html#${amenity.name.toLowerCase().replace(/\s+/g, '-')}" class="learn-more-btn">Learn More</a>
@@ -230,7 +220,6 @@ export async function displayAmenitiesPreview() {
         container.innerHTML = amenitiesHTML;
 
     } catch (error) {
-        console.error('Error displaying amenities preview:', error);
         const container = document.getElementById('amenitiesPreviewContainer');
         if (container) {
             container.innerHTML = `
@@ -247,7 +236,6 @@ export async function displayAmenities() {
     try {
         const amenitiesContainer = document.getElementById('amenitiesContainer');
         if (!amenitiesContainer) {
-            console.log('Amenities container not found - might not be on amenities page');
             return;
         }
 
@@ -260,7 +248,7 @@ export async function displayAmenities() {
         const amenitiesHTML = amenities.map(amenity => `
             <div class="amenity-card" id="amenity-${amenity.id}">
                 <img src="${amenity.image}" alt="${amenity.name}" class="amenity-image" loading="lazy"
-                     onerror="this.style.display='none'; console.error('Failed to load amenity image:', this.src)">
+                     onerror="this.style.display='none'">
                 <div class="amenity-content">
                     <h3>${amenity.name}</h3>
                     <p>${amenity.description}</p>
@@ -280,7 +268,6 @@ export async function displayAmenities() {
         amenitiesContainer.innerHTML = amenitiesHTML;
 
     } catch (error) {
-        console.error('Error displaying amenities:', error);
         showAmenitiesError('Unable to load amenities information. Please try again later.');
     }
 }
@@ -313,7 +300,6 @@ function setupRoomEventListeners() {
                     }
                 }
             } catch (error) {
-                console.error('Error parsing room data:', error);
                 showError('Unable to load room details. Please try again.');
             }
         });
@@ -356,7 +342,6 @@ function validateRoomData(room) {
     const missingFields = requiredFields.filter(field => !room[field] && room[field] !== 0);
 
     if (missingFields.length > 0) {
-        console.warn(`Room ${room.id} missing required fields:`, missingFields);
         return false;
     }
 
