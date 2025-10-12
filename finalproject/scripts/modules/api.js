@@ -17,7 +17,6 @@ export async function fetchRoomData() {
         // Parse JSON response
         const data = await response.json();
 
-
         // Validate structure - Comprehensive structure checking
         if (!data || typeof data !== 'object') {
             throw new Error('Invalid data format: expected object');
@@ -113,7 +112,7 @@ export async function displayFeaturedRooms() {
 
         const roomsHTML = featuredRooms.map(room => `
             <div class="room-card" data-room-id="${room.id}">
-                <img src="${room.image}" alt="${room.name}" class="room-image" loading="lazy" onerror="this.style.display='none'; console.error('Failed to load image:', this.src)">
+                <img src="${room.image}" alt="${room.name}" class="room-image" onerror="this.style.display='none'; console.error('Failed to load image:', this.src)">
                 <div class="room-content">
                     <h3 class="room-title">${room.name}</h3>
                     <div class="room-price">$${room.price}/night</div>
@@ -158,7 +157,7 @@ export async function displayAllRooms() {
 
         const roomsHTML = rooms.map(room => `
             <div class="room-card" data-room-id="${room.id}">
-                <img src="${room.image}" alt="${room.name}" class="room-image" loading="lazy" onerror="this.style.display='none'; console.error('Failed to load image:', this.src)">
+                <img src="${room.image}" alt="${room.name}" class="room-image" onerror="this.style.display='none'; console.error('Failed to load image:', this.src)">
                 <div class="room-content">
                     <h3 class="room-title">${room.name}</h3>
                     <div class="room-price">$${room.price}/night</div>
@@ -219,7 +218,7 @@ export async function displayAmenitiesPreview() {
 
         const amenitiesHTML = finalAmenities.map(amenity => `
             <div class="amenity-card">
-                <img src="${amenity.image}" alt="${amenity.name}" class="amenity-preview-image" loading="lazy"
+                <img src="${amenity.image}" alt="${amenity.name}" class="amenity-preview-image"
                      onerror="this.style.display='none'; console.error('Failed to load amenity image:', this.src)">
                 <h3>${amenity.name}</h3>
                 <p>${amenity.description}</p>
@@ -259,7 +258,7 @@ export async function displayAmenities() {
 
         const amenitiesHTML = amenities.map(amenity => `
             <div class="amenity-card" id="amenity-${amenity.id}">
-                <img src="${amenity.image}" alt="${amenity.name}" class="amenity-image" loading="lazy"
+                <img src="${amenity.image}" alt="${amenity.name}" class="amenity-image"
                      onerror="this.style.display='none'; console.error('Failed to load amenity image:', this.src)">
                 <div class="amenity-content">
                     <h3>${amenity.name}</h3>

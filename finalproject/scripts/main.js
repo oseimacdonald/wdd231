@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
     switch(currentPage) {
         case 'index.html':
         case '':
-            initializeHomePage();
+            initializeHomePage();    // This calls async functions
             break;
         case 'rooms.html':
             initializeRoomsPage();
@@ -80,18 +80,22 @@ function initializeNavigation() {
 // Booking overlay functionality
 function setupBookingOverlay() {
     if (bookingHamburger && bookingContent) {
+        // Toggle booking content visibility
         bookingHamburger.addEventListener('click', (e) => {
             e.stopPropagation();
             e.preventDefault();
             
+            // Toggle active class
             bookingContent.classList.toggle('active');
             
+            // Close navigation menu if open
             if (navMenu && navMenu.classList.contains('active')) {
                 navMenu.classList.remove('active');
                 if (hamburger) hamburger.classList.remove('active');
             }
         });
 
+        // Close booking content when clicking outside
         document.addEventListener('click', (e) => {
             if (bookingContent.classList.contains('active') && 
                 !bookingContent.contains(e.target) && 
@@ -100,10 +104,12 @@ function setupBookingOverlay() {
             }
         });
 
+        // Prevent booking content clicks from closing it
         bookingContent.addEventListener('click', (e) => {
             e.stopPropagation();
         });
 
+        // Close booking content on form submission
         const bookingForms = document.querySelectorAll('.booking-form');
         bookingForms.forEach(form => {
             form.addEventListener('submit', () => {
@@ -111,6 +117,7 @@ function setupBookingOverlay() {
             });
         });
 
+        // Close booking content on Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && bookingContent.classList.contains('active')) {
                 bookingContent.classList.remove('active');
@@ -187,9 +194,10 @@ function optimizeImageLoading() {
     });
 }
 
-// Home page initialization
+// Home page initialization - ASYNC/AWAIT WITH TRY/CATCH
 function initializeHomePage() {
-    displayFeaturedRooms();
+    // These functions are async and use try/catch internally
+    displayFeaturedRooms();     // Async function
     displayAmenitiesPreview();
     loadSavedPreferences();
     populateTimeOptions();
