@@ -142,21 +142,6 @@ nav {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
-.hero.rooms-hero {
-    height: 400px;
-    background: url('../images/hotelbed1.jpg') center/cover no-repeat;
-}
-
-.hero.amenities-hero {
-    height: 400px;
-    background: url('../images/amenities.webp') center/cover no-repeat;
-}
-
-.hero.rooms-hero h1,
-.hero.amenities-hero h1 {
-    font-size: 3rem;
-}
-
 /* Booking Overlay Styles */
 .booking-overlay {
     position: fixed;
